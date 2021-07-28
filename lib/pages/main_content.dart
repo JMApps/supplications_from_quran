@@ -248,7 +248,7 @@ class _MainContentState extends State<MainContent> {
   }
 
   setupPlayList(AsyncSnapshot snapshot) async {
-    var myList = List<Audio>.generate(snapshot.data!.length,
+    var myList = List<Audio>.generate(snapshot.data.length,
         (i) => Audio('assets/audios/${snapshot.data[i].nameAudio}.mp3'));
 
     audioPlayer.open(
