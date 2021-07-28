@@ -43,33 +43,33 @@ class _MainContentState extends State<MainContent> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List>(
-      future: _databaseQuery.getAllAyahs(),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        return Scaffold(
-          appBar: AppBar(
-            title: Text('Мольбы из Корана'),
-            centerTitle: true,
-            backgroundColor: Colors.grey[700],
-            actions: [
-              IconButton(
-                onPressed: () {
-                  Navigator.of(context, rootNavigator: true)
-                      .pushNamed('/favorite');
-                  audioPlayer.dispose();
-                },
-                icon: Icon(CupertinoIcons.bookmark_fill),
-              ),
-              IconButton(
-                onPressed: () {
-                  int randomNumber = _random.nextInt(55);
-                  _scrollPositionTo(randomNumber);
-                },
-                icon: Icon(CupertinoIcons.arrow_2_squarepath),
-              ),
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Мольбы из Корана'),
+        centerTitle: true,
+        backgroundColor: Colors.grey[700],
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context, rootNavigator: true).pushNamed('/favorite');
+              audioPlayer.stop();
+              audioPlayer.dispose();
+            },
+            icon: Icon(CupertinoIcons.bookmark_fill),
           ),
-          body: Column(
+          IconButton(
+            onPressed: () {
+              int randomNumber = _random.nextInt(55);
+              _scrollPositionTo(randomNumber);
+            },
+            icon: Icon(CupertinoIcons.arrow_2_squarepath),
+          ),
+        ],
+      ),
+      body: FutureBuilder<List>(
+        future: _databaseQuery.getAllAyahs(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          return Column(
             children: [
               snapshot.hasData
                   ? Expanded(child: Scrollbar(child: _buildList(snapshot)))
@@ -82,9 +82,9 @@ class _MainContentState extends State<MainContent> {
               ),
               _buildPlayer(snapshot),
             ],
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 
@@ -242,12 +242,12 @@ class _MainContentState extends State<MainContent> {
   _scrollPositionTo(int index) {
     _itemScrollController.scrollTo(
         index: index,
-        duration: Duration(seconds: 1),
+        duration: Duration(milliseconds: 600),
         curve: Curves.easeInOutCubic);
     audioPlayer.playlistPlayAtIndex(index);
   }
 
-  setupPlayList(AsyncSnapshot snapshot) async {
+  setupPlayList(snapshot) async {
     var myList = List<Audio>.generate(snapshot.data.length,
         (i) => Audio('assets/audios/${snapshot.data[i].nameAudio}.mp3'));
 
@@ -259,7 +259,7 @@ class _MainContentState extends State<MainContent> {
         loopMode: LoopMode.none);
   }
 
-  Widget _buildPlayer(AsyncSnapshot snapshot) {
+  Widget _buildPlayer(snapshot) {
     setupPlayList(snapshot);
     return audioPlayer.builderRealtimePlayingInfos(
       builder: (context, realtimePLayingInfo) {
@@ -315,6 +315,7 @@ class _MainContentState extends State<MainContent> {
                 iconSize: 30,
                 onPressed: () {
                   audioPlayer.next(stopIfLast: true);
+                  _scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
                 },
               ),
               IconButton(

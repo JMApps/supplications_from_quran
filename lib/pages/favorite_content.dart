@@ -43,62 +43,40 @@ class _FavoriteContentState extends State<FavoriteContent> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List>(
-      future: _databaseQuery.getFavoriteAyahs(),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        return snapshot.hasData
-            ? Scaffold(
-                appBar: AppBar(
-                  title: Text('Избранное'),
-                  centerTitle: true,
-                  backgroundColor: Colors.grey[700],
-                  actions: [
-                    snapshot.data!.length >= 10
-                        ? IconButton(
-                            onPressed: () {
-                              int randomNumber = _random.nextInt(55);
-                              _scrollPositionTo(randomNumber);
-                            },
-                            icon: Icon(CupertinoIcons.arrow_2_squarepath),
-                          )
-                        : SizedBox(),
-                  ],
-                ),
-                body: Column(
-                  children: [
-                    snapshot.hasData
-                        ? Expanded(
-                            child: Scrollbar(child: _buildList(snapshot)))
-                        : Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                    Divider(
-                      height: 2,
-                      color: Colors.grey[800],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Избранное'),
+        centerTitle: true,
+        backgroundColor: Colors.grey[700],
+        actions: [
+          IconButton(
+            onPressed: () {
+              int randomNumber = _random.nextInt(55);
+              _scrollPositionTo(randomNumber);
+            },
+            icon: Icon(CupertinoIcons.arrow_2_squarepath),
+          )
+        ],
+      ),
+      body: FutureBuilder<List>(
+        future: _databaseQuery.getFavoriteAyahs(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          return Column(
+            children: [
+              snapshot.hasData
+                  ? Expanded(child: Scrollbar(child: _buildList(snapshot)))
+                  : Center(
+                      child: CircularProgressIndicator(),
                     ),
-                    snapshot.data!.length != 0
-                        ? _buildPlayer(snapshot)
-                        : SizedBox(),
-                  ],
-                ),
-              )
-            : Scaffold(
-                appBar: AppBar(
-                  title: Text('Избранное'),
-                  centerTitle: true,
-                  backgroundColor: Colors.grey[700],
-                ),
-                body: Center(
-                  child: TextButton.icon(
-                      onPressed: null,
-                      icon: Icon(CupertinoIcons.bookmark_fill),
-                      label: Text(
-                        'Избранных дуа нет',
-                        style: TextStyle(fontSize: 18),
-                      )),
-                ),
-              );
-      },
+              Divider(
+                height: 2,
+                color: Colors.grey[800],
+              ),
+              snapshot.data!.length != 0 ? _buildPlayer(snapshot) : SizedBox(),
+            ],
+          );
+        },
+      ),
     );
   }
 
@@ -304,6 +282,10 @@ class _FavoriteContentState extends State<FavoriteContent> {
                 iconSize: 30,
                 onPressed: () {
                   audioPlayer.next(stopIfLast: true);
+                  if (snapshot.data.length > 2) {
+                    _scrollPositionTo(
+                        audioPlayer.readingPlaylist!.currentIndex);
+                  }
                 },
               ),
               IconButton(
