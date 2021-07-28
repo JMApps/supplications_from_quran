@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jmapps.supplicationsfromquran.supplications_from_quran">
    <application
-        android:label="supplications_from_quran"
+        android:label="Мольбы из Корана"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
