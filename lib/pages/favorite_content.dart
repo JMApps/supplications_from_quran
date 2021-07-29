@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,11 +18,9 @@ class FavoriteContent extends StatefulWidget {
 class _FavoriteContentState extends State<FavoriteContent> {
   var _databaseQuery = DatabaseQuery();
   final _itemScrollController = ItemScrollController();
-  var _random = Random();
 
   late AssetsAudioPlayer audioPlayer;
   bool _loopTrack = false;
-  bool selectDefault = false;
 
   @override
   void initState() {
@@ -49,17 +45,6 @@ class _FavoriteContentState extends State<FavoriteContent> {
         title: Text('Избранное'),
         centerTitle: true,
         backgroundColor: Colors.grey[700],
-        actions: [
-          selectDefault
-              ? IconButton(
-                  onPressed: () {
-                    int randomNumber = _random.nextInt(55);
-                    _scrollPositionTo(randomNumber);
-                  },
-                  icon: Icon(CupertinoIcons.arrow_2_squarepath),
-                )
-              : SizedBox(),
-        ],
       ),
       body: FutureBuilder<List>(
         future: _databaseQuery.getFavoriteAyahs(),
@@ -208,7 +193,7 @@ class _FavoriteContentState extends State<FavoriteContent> {
   _scrollPositionTo(int index) {
     _itemScrollController.scrollTo(
         index: index,
-        duration: Duration(seconds: 1),
+        duration: Duration(milliseconds: 600),
         curve: Curves.easeInOutCubic);
   }
 
@@ -224,16 +209,14 @@ class _FavoriteContentState extends State<FavoriteContent> {
         loopMode: LoopMode.none);
   }
 
-  Widget _buildPlayer(AsyncSnapshot snapshot) {
+  Widget _buildPlayer(snapshot) {
     setupPlayList(snapshot);
     return audioPlayer.builderRealtimePlayingInfos(
       builder: (context, realtimePLayingInfo) {
         audioPlayer.playlistAudioFinished.listen((event) {
           if (audioPlayer.readingPlaylist!.currentIndex <
               snapshot.data!.length) {
-            if (snapshot.data!.length > 2) {
-              _scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
-            }
+            _scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
           }
         });
         return Container(
@@ -272,6 +255,7 @@ class _FavoriteContentState extends State<FavoriteContent> {
                 color: Colors.blueGrey[800],
                 iconSize: 45,
                 onPressed: () {
+                  _scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
                   audioPlayer.playOrPause();
                 },
               ),
@@ -282,10 +266,7 @@ class _FavoriteContentState extends State<FavoriteContent> {
                 iconSize: 30,
                 onPressed: () {
                   audioPlayer.next(stopIfLast: true);
-                  if (snapshot.data.length > 2) {
-                    _scrollPositionTo(
-                        audioPlayer.readingPlaylist!.currentIndex);
-                  }
+                  _scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
                 },
               ),
               IconButton(

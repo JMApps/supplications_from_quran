@@ -235,11 +235,10 @@ class _MainContentState extends State<MainContent> {
         index: index,
         duration: Duration(milliseconds: 600),
         curve: Curves.easeInOutCubic);
-    audioPlayer.playlistPlayAtIndex(index);
   }
 
-  setupPlayList(snapshot) async {
-    var myList = List<Audio>.generate(snapshot.data.length,
+  setupPlayList(AsyncSnapshot snapshot) async {
+    var myList = List<Audio>.generate(snapshot.data!.length,
         (i) => Audio('assets/audios/${snapshot.data[i].nameAudio}.mp3'));
 
     audioPlayer.open(
@@ -296,6 +295,7 @@ class _MainContentState extends State<MainContent> {
                 color: Colors.blueGrey[800],
                 iconSize: 45,
                 onPressed: () {
+                  _scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
                   audioPlayer.playOrPause();
                 },
               ),
