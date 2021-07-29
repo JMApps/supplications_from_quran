@@ -24,6 +24,7 @@ class _FavoriteContentState extends State<FavoriteContent> {
 
   late AssetsAudioPlayer audioPlayer;
   bool _loopTrack = false;
+  bool selectDefault = false;
 
   @override
   void initState() {
@@ -49,32 +50,40 @@ class _FavoriteContentState extends State<FavoriteContent> {
         centerTitle: true,
         backgroundColor: Colors.grey[700],
         actions: [
-          IconButton(
-            onPressed: () {
-              int randomNumber = _random.nextInt(55);
-              _scrollPositionTo(randomNumber);
-            },
-            icon: Icon(CupertinoIcons.arrow_2_squarepath),
-          )
+          selectDefault
+              ? IconButton(
+                  onPressed: () {
+                    int randomNumber = _random.nextInt(55);
+                    _scrollPositionTo(randomNumber);
+                  },
+                  icon: Icon(CupertinoIcons.arrow_2_squarepath),
+                )
+              : SizedBox(),
         ],
       ),
       body: FutureBuilder<List>(
         future: _databaseQuery.getFavoriteAyahs(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          return Column(
-            children: [
-              snapshot.hasData
-                  ? Expanded(child: Scrollbar(child: _buildList(snapshot)))
-                  : Center(
-                      child: CircularProgressIndicator(),
+          return snapshot.hasData
+              ? Column(
+                  children: [
+                    Expanded(child: Scrollbar(child: _buildList(snapshot))),
+                    Divider(
+                      height: 2,
+                      color: Colors.grey[800],
                     ),
-              Divider(
-                height: 2,
-                color: Colors.grey[800],
-              ),
-              snapshot.data!.length != 0 ? _buildPlayer(snapshot) : SizedBox(),
-            ],
-          );
+                    _buildPlayer(snapshot),
+                  ],
+                )
+              : Center(
+                  child: TextButton.icon(
+                      onPressed: null,
+                      icon: Icon(CupertinoIcons.bookmark_fill),
+                      label: Text(
+                        'Избранных дуа нет',
+                        style: TextStyle(fontSize: 18),
+                      )),
+                );
         },
       ),
     );
@@ -141,19 +150,11 @@ class _FavoriteContentState extends State<FavoriteContent> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(25),
-              ),
-              color: Colors.grey[300]),
-          child: Text(
-            '${item.id}',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.blue,
-            ),
+        Text(
+          'Дуа – ${item.id}',
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.blue,
           ),
         ),
         audioPlayer.builderRealtimePlayingInfos(
@@ -209,7 +210,6 @@ class _FavoriteContentState extends State<FavoriteContent> {
         index: index,
         duration: Duration(seconds: 1),
         curve: Curves.easeInOutCubic);
-    audioPlayer.playlistPlayAtIndex(index);
   }
 
   setupPlayList(AsyncSnapshot snapshot) async {

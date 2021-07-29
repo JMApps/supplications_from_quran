@@ -53,7 +53,6 @@ class _MainContentState extends State<MainContent> {
             onPressed: () {
               Navigator.of(context, rootNavigator: true).pushNamed('/favorite');
               audioPlayer.stop();
-              audioPlayer.dispose();
             },
             icon: Icon(CupertinoIcons.bookmark_fill),
           ),
@@ -69,20 +68,20 @@ class _MainContentState extends State<MainContent> {
       body: FutureBuilder<List>(
         future: _databaseQuery.getAllAyahs(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          return Column(
-            children: [
-              snapshot.hasData
-                  ? Expanded(child: Scrollbar(child: _buildList(snapshot)))
-                  : Center(
-                      child: CircularProgressIndicator(),
+          return snapshot.hasData
+              ? Column(
+                  children: [
+                    Expanded(child: Scrollbar(child: _buildList(snapshot))),
+                    Divider(
+                      height: 2,
+                      color: Colors.grey[800],
                     ),
-              Divider(
-                height: 2,
-                color: Colors.grey[800],
-              ),
-              _buildPlayer(snapshot),
-            ],
-          );
+                    _buildPlayer(snapshot),
+                  ],
+                )
+              : Center(
+                  child: CircularProgressIndicator(),
+                );
         },
       ),
     );
@@ -149,19 +148,11 @@ class _MainContentState extends State<MainContent> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(25),
-              ),
-              color: Colors.grey[300]),
-          child: Text(
-            '${item.id}',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.blue,
-            ),
+        Text(
+          'Дуа – ${item.id}',
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.blue,
           ),
         ),
         audioPlayer.builderRealtimePlayingInfos(
