@@ -1,22 +1,18 @@
 class AyahItem {
-  int? id;
-  String? contentAyah;
-  String? contentTranslation;
-  String? contentTranslationShare;
-  String? nameAudio;
-  String? nameDua;
-  int? favoriteState;
+  final int id;
+  final String contentAyah;
+  final String contentTranslation;
+  final String contentTranslationShare;
+  final String nameAudio;
+  final String nameDua;
+  final int favoriteState;
 
-  AyahItem(this.id, this.contentAyah, this.contentTranslation, this.contentTranslationShare, this.nameAudio,
-      this.nameDua, this.favoriteState);
-
-  AyahItem.fromMap(dynamic obj) {
-    this.id = obj['_id'];
-    this.contentAyah = obj['content_ayah'];
-    this.contentTranslation = obj['content_translation'];
-    this.contentTranslationShare = obj['content_translation_share'];
-    this.nameAudio = obj['name_audio'];
-    this.nameDua = obj['name_dua'];
-    this.favoriteState = obj['favorite_state'];
-  }
+  AyahItem.fromMap(dynamic obj)
+      : id = obj['_id'],
+        contentAyah = obj['content_ayah'],
+        contentTranslation = obj['content_translation'],
+        contentTranslationShare = obj['content_translation_share'],
+        nameAudio = obj['name_audio'],
+        nameDua = obj['name_dua'],
+        favoriteState = obj['favorite_state'];
 }
