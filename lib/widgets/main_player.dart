@@ -27,7 +27,7 @@ class MainPlayer extends StatelessWidget {
             child: Text(
               '${getTimeString(realTimePlayingInfo.currentPosition.inSeconds)}',
               style: TextStyle(
-                color: Colors.blueGrey[800],
+                color: const Color(0xFFe0dee2),
                 fontSize: 16,
                 fontFamily: 'Gilroy',
               ),
@@ -35,8 +35,8 @@ class MainPlayer extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(CupertinoIcons.backward_end_alt),
-            splashColor: Colors.blue,
-            color: Colors.blue[500],
+            splashColor: const Color(0xFFe0dee2),
+            color: const Color(0xFFe0dee2),
             iconSize: 30,
             onPressed: () {
               if (audioPlayer.readingPlaylist!.currentIndex > 0) {
@@ -47,7 +47,7 @@ class MainPlayer extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(realTimePlayingInfo.isPlaying ? CupertinoIcons.pause_fill : CupertinoIcons.play_fill),
-            color: Colors.blueGrey[800],
+            color: const Color(0xFFe0dee2),
             iconSize: 45,
             onPressed: () {
               audioPlayer.playOrPause();
@@ -56,8 +56,8 @@ class MainPlayer extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(CupertinoIcons.forward_end_alt),
-            splashColor: Colors.blue,
-            color: Colors.blue[500],
+            splashColor: const Color(0xff985ac4),
+            color: const Color(0xFFe0dee2),
             iconSize: 30,
             onPressed: () {
               audioPlayer.next(stopIfLast: true);
@@ -66,7 +66,7 @@ class MainPlayer extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(CupertinoIcons.repeat),
-            color: context.watch<MainPlayerState>().getLoopState ? Colors.blue[500] : Colors.grey[800],
+            color: context.watch<MainPlayerState>().getLoopState ? const Color(0xff985ac4) : const Color(0xFFe0dee2),
             iconSize: 30,
             onPressed: () {context.read<MainPlayerState>().changeLoopState(!context.watch<MainPlayerState>().getLoopState);
               audioPlayer.setLoopMode(context.watch<MainPlayerState>().getLoopState ? LoopMode.single : LoopMode.none);
@@ -77,7 +77,7 @@ class MainPlayer extends StatelessWidget {
             child: Text(
               '${getTimeString(realTimePlayingInfo.duration.inSeconds)}',
               style: TextStyle(
-                color: Colors.grey[800],
+                color: const Color(0xFFe0dee2),
                 fontSize: 16,
                 fontFamily: 'Gilroy',
               ),

@@ -38,8 +38,8 @@ class ItemMainContent extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: isPlaying && player.readingPlaylist!.currentIndex == index
-                  ? Colors.yellow[50]
-                  : Colors.white,
+                  ? const Color(0xFFe0dee2)
+                  : const Color(0xFFFFFFFF),
             ),
             child: Column(
               children: [

@@ -41,9 +41,14 @@ class _FavoriteContentState extends State<FavoriteContent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Избранное'),
+        title: Text(
+          'Избранное',
+          style: TextStyle(
+            color: const Color(0xFFe0dee2),
+          ),
+        ),
         centerTitle: false,
-        backgroundColor: Colors.grey[700],
+        backgroundColor: const Color(0xFF3d3d41),
       ),
       body: FutureBuilder<List>(
         future: context.watch<MainPlayerState>().getUpdateList

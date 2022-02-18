@@ -47,16 +47,24 @@ class _MainContentState extends State<MainContent> {
     context.read<AppSettingsState>().initPreferences();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Мольбы из Корана'),
+        title: Text(
+          'Мольбы из Корана',
+          style: TextStyle(
+            color: const Color(0xFFe0dee2),
+          ),
+        ),
         centerTitle: false,
-        backgroundColor: Colors.grey[700],
+        backgroundColor: const Color(0xFF3d3d41),
         actions: [
           IconButton(
             onPressed: () {
               _audioPlayer.stop();
               Navigator.of(context, rootNavigator: true).pushNamed('/favorite');
             },
-            icon: Icon(CupertinoIcons.bookmark_fill),
+            icon: Icon(
+              CupertinoIcons.bookmark_fill,
+              color: const Color(0xFFe0dee2),
+            ),
           ),
           IconButton(
             onPressed: () {
@@ -69,12 +77,15 @@ class _MainContentState extends State<MainContent> {
             },
             icon: Icon(
               CupertinoIcons.settings,
+              color: const Color(0xFFe0dee2),
             ),
           ),
         ],
       ),
       body: FutureBuilder<List>(
-        future: context.watch<MainPlayerState>().getUpdateList ? _databaseQuery.getAllAyahs() : _databaseQuery.getAllAyahs(),
+        future: context.watch<MainPlayerState>().getUpdateList
+            ? _databaseQuery.getAllAyahs()
+            : _databaseQuery.getAllAyahs(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             setupPlayList(snapshot);
@@ -101,8 +112,10 @@ class _MainContentState extends State<MainContent> {
         },
       ),
       bottomNavigationBar: Container(
+        color: const Color(0xFF3d3d41),
         child: _audioPlayer.builderRealtimePlayingInfos(
-          builder: (BuildContext context, RealtimePlayingInfos realtimePlayingInfo) {
+          builder:
+              (BuildContext context, RealtimePlayingInfos realtimePlayingInfo) {
             return MainPlayer(
               audioPlayer: _audioPlayer,
               realTimePlayingInfo: realtimePlayingInfo,
