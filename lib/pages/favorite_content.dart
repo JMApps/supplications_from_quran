@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/data/database_query.dart';
-import 'package:supplications_from_quran/provider/main_player_state.dart';
+import 'package:supplications_from_quran/provider/favorite_state.dart';
 import 'package:supplications_from_quran/widgets/lists/list_favorite_content.dart';
 
 class FavoriteContent extends StatefulWidget {
@@ -51,7 +51,7 @@ class _FavoriteContentState extends State<FavoriteContent> {
         backgroundColor: const Color(0xFF3d3d41),
       ),
       body: FutureBuilder<List>(
-        future: context.watch<MainPlayerState>().getUpdateList
+        future: context.watch<FavoriteState>().getUpdateList
             ? _databaseQuery.getFavoriteAyahs()
             : _databaseQuery.getFavoriteAyahs(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {

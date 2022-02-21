@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/provider/app_settings_state.dart';
+import 'package:supplications_from_quran/provider/favorite_state.dart';
 import 'package:supplications_from_quran/provider/main_player_state.dart';
 
 import 'router/app_router.dart';
@@ -12,6 +13,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => MainPlayerState()),
         ChangeNotifierProvider(create: (_) => AppSettingsState()),
+        ChangeNotifierProvider(create: (_) => FavoriteState()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

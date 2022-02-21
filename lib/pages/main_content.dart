@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/data/database_query.dart';
 import 'package:supplications_from_quran/provider/app_settings_state.dart';
-import 'package:supplications_from_quran/provider/main_player_state.dart';
+import 'package:supplications_from_quran/provider/favorite_state.dart';
 import 'package:supplications_from_quran/widgets/app_settings.dart';
 import 'package:supplications_from_quran/widgets/lists/list_main_content.dart';
 import 'package:supplications_from_quran/widgets/main_player.dart';
@@ -22,7 +21,6 @@ class MainContent extends StatefulWidget {
 class _MainContentState extends State<MainContent> {
   final _databaseQuery = DatabaseQuery();
   final _audioPlayer = AssetsAudioPlayer();
-  var _random = Random();
 
   @override
   void dispose() {
@@ -63,7 +61,7 @@ class _MainContentState extends State<MainContent> {
             },
             icon: Icon(
               CupertinoIcons.bookmark_fill,
-              color: const Color(0xFFe0dee2),
+              color: context.watch<AppSettingsState>().getArabicTextColor,
             ),
           ),
           IconButton(
@@ -83,7 +81,7 @@ class _MainContentState extends State<MainContent> {
         ],
       ),
       body: FutureBuilder<List>(
-        future: context.watch<MainPlayerState>().getUpdateList
+        future: context.watch<FavoriteState>().getUpdateList
             ? _databaseQuery.getAllAyahs()
             : _databaseQuery.getAllAyahs(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -101,14 +99,6 @@ class _MainContentState extends State<MainContent> {
                           ? const CupertinoActivityIndicator()
                           : const CircularProgressIndicator(),
                     );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        mini: true,
-        child: Icon(CupertinoIcons.arrow_2_squarepath),
-        onPressed: () {
-          int _randomNumber = _random.nextInt(55);
-          context.read<MainPlayerState>().scrollPositionTo(_randomNumber);
         },
       ),
       bottomNavigationBar: Container(

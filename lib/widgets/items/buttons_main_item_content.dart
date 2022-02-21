@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:supplications_from_quran/model/ayah_item.dart';
 import 'package:supplications_from_quran/provider/app_settings_state.dart';
-import 'package:supplications_from_quran/provider/main_player_state.dart';
+import 'package:supplications_from_quran/provider/favorite_state.dart';
 
 class ButtonsMainItemContent extends StatelessWidget {
   const ButtonsMainItemContent({
@@ -56,14 +56,25 @@ class ButtonsMainItemContent extends StatelessWidget {
         IconButton(
           onPressed: () {
             context
-                .read<MainPlayerState>()
+                .read<FavoriteState>()
                 .addRemoveFavorite(item.favoriteState == 0 ? 1 : 0, item.id);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: item.favoriteState == 0
-                    ? Text('Добавлено')
-                    : Text('Удалено'),
+                    ? Text(
+                        'Добавлено',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      )
+                    : Text(
+                        'Удалено',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
                 duration: Duration(milliseconds: 500),
+                backgroundColor: Colors.blue,
               ),
             );
           },
