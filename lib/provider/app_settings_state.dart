@@ -11,11 +11,11 @@ class AppSettingsState with ChangeNotifier {
 
   double get getTextTranslationSize => _textTranslationSize;
 
-  Color _textArabicColor = Colors.black;
+  Color _textArabicColor = Colors.red;
 
   Color get getArabicTextColor => _textArabicColor;
 
-  Color _textTranslationColor = Colors.black;
+  Color _textTranslationColor = Colors.black87;
 
   Color get getTranslationColor => _textTranslationColor;
 
@@ -64,7 +64,7 @@ class AppSettingsState with ChangeNotifier {
     final preferences = await SharedPreferences.getInstance();
     _textArabicSize = preferences.getDouble('key_text_arabic_size_value') ?? 18;
     _textTranslationSize = preferences.getDouble('key_text_translation_size_value') ?? 18;
-    _textArabicColor = Color(preferences.getInt('key_text_arabic_color_value') ?? Colors.black.value);
-    _textTranslationColor = Color(preferences.getInt('key_text_translation_color_value') ?? Colors.black.value);
+    _textArabicColor = Color(preferences.getInt('key_text_arabic_color_value') ?? Colors.red.value);
+    _textTranslationColor = Color(preferences.getInt('key_text_translation_color_value') ?? Colors.black87.value);
   }
 }
