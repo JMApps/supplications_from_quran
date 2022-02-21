@@ -1,11 +1,15 @@
+import 'dart:math';
+
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:supplications_from_quran/provider/app_settings_state.dart';
+import 'package:supplications_from_quran/provider/favorite_state.dart';
 import 'package:supplications_from_quran/provider/main_player_state.dart';
 
 class MainPlayer extends StatelessWidget {
-  const MainPlayer({
+  MainPlayer({
     Key? key,
     required this.audioPlayer,
     required this.realTimePlayingInfo,
@@ -13,6 +17,7 @@ class MainPlayer extends StatelessWidget {
 
   final AssetsAudioPlayer audioPlayer;
   final RealtimePlayingInfos realTimePlayingInfo;
+  final _random = Random(55);
 
   @override
   Widget build(BuildContext context) {
@@ -35,41 +40,48 @@ class MainPlayer extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(CupertinoIcons.backward_end_alt),
-            splashColor: const Color(0xFFe0dee2),
             color: const Color(0xFFe0dee2),
             iconSize: 30,
             onPressed: () {
               if (audioPlayer.readingPlaylist!.currentIndex > 0) {
                 audioPlayer.previous();
-                context.read<MainPlayerState>().scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
+                context.read<FavoriteState>().scrollPositionTo(
+                    audioPlayer.readingPlaylist!.currentIndex);
               }
             },
           ),
           IconButton(
-            icon: Icon(realTimePlayingInfo.isPlaying ? CupertinoIcons.pause_fill : CupertinoIcons.play_fill),
+            icon: Icon(realTimePlayingInfo.isPlaying
+                ? CupertinoIcons.pause_fill
+                : CupertinoIcons.play_fill),
             color: const Color(0xFFe0dee2),
             iconSize: 45,
             onPressed: () {
               audioPlayer.playOrPause();
-              context.read<MainPlayerState>().scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
+              context.read<FavoriteState>().scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
             },
           ),
           IconButton(
             icon: Icon(CupertinoIcons.forward_end_alt),
-            splashColor: const Color(0xff985ac4),
             color: const Color(0xFFe0dee2),
             iconSize: 30,
             onPressed: () {
               audioPlayer.next(stopIfLast: true);
-              context.read<MainPlayerState>().scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
+              context.read<FavoriteState>().scrollPositionTo(audioPlayer.readingPlaylist!.currentIndex);
             },
           ),
           IconButton(
             icon: Icon(CupertinoIcons.repeat),
-            color: context.watch<MainPlayerState>().getLoopState ? const Color(0xff985ac4) : const Color(0xFFe0dee2),
+            color: context.watch<MainPlayerState>().getLoopState
+                ? context.watch<AppSettingsState>().getArabicTextColor
+                : const Color(0xFFe0dee2),
             iconSize: 30,
-            onPressed: () {context.read<MainPlayerState>().changeLoopState(!context.watch<MainPlayerState>().getLoopState);
-              audioPlayer.setLoopMode(context.watch<MainPlayerState>().getLoopState ? LoopMode.single : LoopMode.none);
+            onPressed: () {
+              context.read<MainPlayerState>().changeLoopState();
+              audioPlayer.setLoopMode(
+                  context.read<MainPlayerState>().getLoopState
+                      ? LoopMode.single
+                      : LoopMode.none);
             },
           ),
           Container(
@@ -82,6 +94,15 @@ class MainPlayer extends StatelessWidget {
                 fontFamily: 'Gilroy',
               ),
             ),
+          ),
+          FloatingActionButton(
+            mini: true,
+            backgroundColor: context.watch<AppSettingsState>().getArabicTextColor,
+            child: Icon(CupertinoIcons.arrow_2_squarepath),
+            onPressed: () {
+              int _randomNumber = _random.nextInt(55);
+              context.read<FavoriteState>().scrollPositionTo(_randomNumber);
+            },
           ),
         ],
       ),
