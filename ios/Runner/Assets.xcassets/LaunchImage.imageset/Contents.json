@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "512-2.png",
+      "filename" : "supp_logo-1.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "512.png",
+      "filename" : "supp_logo.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "512-1.png",
+      "filename" : "supp_logo-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }
