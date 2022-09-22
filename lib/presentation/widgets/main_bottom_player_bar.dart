@@ -9,23 +9,35 @@ class MainBottomPlayerBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Theme.of(context).colorScheme.mainPrimaryColor,
-      shape: const RoundedRectangleBorder(
+    return Container(
+      height: 70,
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           topRight: Radius.elliptical(55, 35),
         ),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 4,
+            offset: Offset(1, 1),
+          ),
+        ],
       ),
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        height: 70,
+      child: Material(
+        color: Theme.of(context).colorScheme.mainPrimaryColor,
+        elevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.elliptical(55, 35),
+          ),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
               padding: EdgeInsets.zero,
               splashRadius: 20,
-              icon: const Icon(CupertinoIcons.backward_end, color: Colors.white),
+              icon:
+                  const Icon(CupertinoIcons.backward_end, color: Colors.white),
               onPressed: () {},
             ),
             IconButton(
@@ -39,19 +51,14 @@ class MainBottomPlayerBar extends StatelessWidget {
               splashRadius: 20,
               icon: const Icon(CupertinoIcons.forward_end, color: Colors.white),
               onPressed: () {
-                context.read<MainListState>().toPageAyah(3);
+                context.read<MainListState>().toPageAyah(1);
               },
             ),
             IconButton(
               padding: EdgeInsets.zero,
               splashRadius: 20,
-              icon: const Icon(CupertinoIcons.arrow_2_circlepath, color: Colors.white),
-              onPressed: () {},
-            ),
-            IconButton(
-              padding: EdgeInsets.zero,
-              splashRadius: 20,
-              icon: const Icon(CupertinoIcons.arrow_2_squarepath, color: Colors.white),
+              icon: const Icon(CupertinoIcons.arrow_2_circlepath,
+                  color: Colors.white),
               onPressed: () {},
             ),
           ],

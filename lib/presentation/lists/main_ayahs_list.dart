@@ -14,13 +14,18 @@ class MainAyahsList extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 64),
+          padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 64),
           decoration: BoxDecoration(
             color: myColor.mainPrimaryColor,
             borderRadius: const BorderRadius.only(
               topRight: Radius.circular(15),
               bottomRight: Radius.circular(15),
             ),
+            boxShadow: const [
+              BoxShadow(
+                blurRadius: 0.5,
+              ),
+            ],
           ),
           child: SmoothPageIndicator(
             controller: context.watch<MainListState>().geMainListController,
@@ -33,6 +38,9 @@ class MainAyahsList extends StatelessWidget {
               dotColor: myColor.dotColor,
               activeDotColor: myColor.mainAccentColor,
             ),
+            onDotClicked: (int index) {
+              context.read<MainListState>().toPageAyah(index);
+            },
           ),
         ),
         Expanded(
