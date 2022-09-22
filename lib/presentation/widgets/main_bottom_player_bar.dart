@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:supplications_from_quran/until/state/main_list_state.dart';
+import 'package:supplications_from_quran/until/theme/app_theme.dart';
 
 class MainBottomPlayerBar extends StatelessWidget {
   const MainBottomPlayerBar({Key? key}) : super(key: key);
@@ -7,7 +10,7 @@ class MainBottomPlayerBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color(0xff212126),
+      color: Theme.of(context).colorScheme.mainPrimaryColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topRight: Radius.elliptical(55, 35),
@@ -22,8 +25,7 @@ class MainBottomPlayerBar extends StatelessWidget {
             IconButton(
               padding: EdgeInsets.zero,
               splashRadius: 20,
-              icon:
-                  const Icon(CupertinoIcons.backward_end, color: Colors.white),
+              icon: const Icon(CupertinoIcons.backward_end, color: Colors.white),
               onPressed: () {},
             ),
             IconButton(
@@ -36,7 +38,9 @@ class MainBottomPlayerBar extends StatelessWidget {
               padding: EdgeInsets.zero,
               splashRadius: 20,
               icon: const Icon(CupertinoIcons.forward_end, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                context.read<MainListState>().toPageAyah(3);
+              },
             ),
             IconButton(
               padding: EdgeInsets.zero,
