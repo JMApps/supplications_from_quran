@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class MainListState with ChangeNotifier {
@@ -8,7 +10,16 @@ class MainListState with ChangeNotifier {
   toPageAyah(int index) {
     _mainListController.animateToPage(
       index,
-      duration: const Duration(milliseconds: 750),
+      duration: const Duration(milliseconds: 150),
+      curve: Curves.easeInQuad,
+    );
+  }
+
+  toRandomAyah() {
+    var randomAyah = Random();
+    _mainListController.animateToPage(
+      randomAyah.nextInt(50),
+      duration: const Duration(milliseconds: 150),
       curve: Curves.easeInQuad,
     );
   }
