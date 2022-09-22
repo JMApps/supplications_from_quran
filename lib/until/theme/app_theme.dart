@@ -3,33 +3,33 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static final lightTheme = ThemeData(
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    scaffoldBackgroundColor: const Color(0xFFF3E5F5),
+    scaffoldBackgroundColor: const Color(0xFFE8EAF6),
     appBarTheme: const AppBarTheme(
       centerTitle: true,
-      elevation: 0,
+      elevation: 3,
       backgroundColor: Color(0xff383864),
     ),
     fontFamily: 'Gilroy',
     colorScheme: const ColorScheme.light(
       primary: Colors.redAccent,
     ),
-    cardColor: const Color(0xFFFFFFFF),
+    cardColor: const Color(0xFFC5CAE9),
     dividerColor: Colors.transparent,
   );
 
   static final darkTheme = ThemeData(
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    scaffoldBackgroundColor: const Color(0xff2c2c34),
+    scaffoldBackgroundColor: const Color(0xff212126),
     appBarTheme: const AppBarTheme(
       centerTitle: true,
-      elevation: 0,
-      backgroundColor: Color(0xff212126),
+      elevation: 3,
+      backgroundColor: Color(0xff2c2c34),
     ),
     fontFamily: 'Gilroy',
     colorScheme: const ColorScheme.dark(
       primary: Colors.greenAccent,
     ),
-    cardColor: const Color(0xff212126),
+    cardColor: const Color(0xff2c2c34),
     dividerColor: Colors.transparent,
   );
 }
@@ -37,13 +37,21 @@ class AppTheme {
 extension ColorSchemeS on ColorScheme {
   Color get mainPrimaryColor => brightness == Brightness.light
       ? const Color(0xff383864)
-      : const Color(0xff212126);
+      : const Color(0xff2c2c34);
 
   Color get mainAccentColor => brightness == Brightness.light
-      ? const Color(0xFFD50000)
+      ? const Color(0xFFF44336)
       : const Color(0xFF00C853);
 
   Color get dotColor => brightness == Brightness.light
       ? const Color(0xFFF3E5F5)
       : const Color(0xff525260);
+
+  Color get iconColor => brightness == Brightness.light
+      ? const Color(0xff444483)
+      : const Color(0xff2c2c34);
+
+  Color get iconPrimaryColor => brightness == Brightness.light
+      ? const Color(0xFFE57373)
+      : const Color(0xFF69F0AE);
 }

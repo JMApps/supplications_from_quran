@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supplications_from_quran/presentation/widgets/bottom_buttons.dart';
+import 'package:supplications_from_quran/until/theme/app_theme.dart';
 
 class AyahItem extends StatelessWidget {
   const AyahItem({
@@ -12,8 +13,7 @@ class AyahItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
-      color: Colors.indigo.shade100,
+      elevation: 5,
       margin: const EdgeInsets.only(left: 16, bottom: 16),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -31,7 +31,7 @@ class AyahItem extends StatelessWidget {
                 child: const Text(
                   'وَإِذَا قِيلَ لَهُمۡ ءَامِنُواْ كَمَآ ءَامَنَ ٱلنَّاسُ قَالُوٓاْ أَنُؤۡمِنُ كَمَآ ءَامَنَ ٱلسُّفَهَآءُۗ أَلَآ إِنَّهُمۡ هُمُ ٱلسُّفَهَآءُ وَلَٰكِن لَّا يَعۡلَمُونَ ',
                   style: TextStyle(
-                    fontSize: 21,
+                    fontSize: 25,
                     fontFamily: 'Quran',
                   ),
                   textDirection: TextDirection.rtl,
@@ -49,20 +49,27 @@ class AyahItem extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              const ExpansionTile(
-                tilePadding: EdgeInsets.symmetric(horizontal: 16),
+              ExpansionTile(
+                key: PageStorageKey<int>(itemIndex),
+                tilePadding: const EdgeInsets.symmetric(horizontal: 16),
                 childrenPadding: EdgeInsets.zero,
                 maintainState: true,
-                title: Text(
-                  '',
-                  style: TextStyle(
-                    fontSize: 13,
-                  ),
-                ),
-                children: [
+                title: const Text(''),
+                children: const [
                   BottomButtons(),
                 ],
-              )
+              ),
+              const SizedBox(height: 16),
+              CircleAvatar(
+                backgroundColor: Theme.of(context).colorScheme.iconPrimaryColor.withOpacity(0.5),
+                child: Text(
+                  '$itemIndex',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Theme.of(context).colorScheme.mainPrimaryColor.withOpacity(0.5),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
