@@ -22,8 +22,8 @@ dependencies:
   scrollable_positioned_list: ^0.3.4
   provider: ^6.0.3
   flutter_colorpicker: ^1.0.3
-  just_audio: ^0.9.29
   smooth_page_indicator: ^1.0.0+2
+  just_audio: ^0.9.29
 
 dev_dependencies:
   flutter_test:

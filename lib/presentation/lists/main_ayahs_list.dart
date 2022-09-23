@@ -18,8 +18,7 @@ class MainAyahsList extends StatelessWidget {
             ? Row(
                 children: [
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 2, vertical: 64),
+                    padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 64),
                     decoration: BoxDecoration(
                       color: myColor.mainPrimaryColor,
                       borderRadius: const BorderRadius.only(
@@ -33,8 +32,7 @@ class MainAyahsList extends StatelessWidget {
                       ],
                     ),
                     child: SmoothPageIndicator(
-                      controller:
-                          context.watch<MainListState>().geMainListController,
+                      controller: context.watch<MainListState>().geMainListController,
                       axisDirection: Axis.vertical,
                       count: snapshot.data!.length,
                       effect: ScrollingDotsEffect(
@@ -51,8 +49,7 @@ class MainAyahsList extends StatelessWidget {
                   ),
                   Expanded(
                     child: PageView.builder(
-                      controller:
-                          context.watch<MainListState>().geMainListController,
+                      controller: context.watch<MainListState>().geMainListController,
                       scrollDirection: Axis.vertical,
                       itemCount: snapshot.data!.length,
                       itemBuilder: (BuildContext context, int index) {
