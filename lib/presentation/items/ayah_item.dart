@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supplications_from_quran/data/local/database/model/main_list_item_model.dart';
 import 'package:supplications_from_quran/presentation/widgets/bottom_buttons.dart';
 import 'package:supplications_from_quran/until/theme/app_theme.dart';
 
@@ -6,12 +7,15 @@ class AyahItem extends StatelessWidget {
   const AyahItem({
     Key? key,
     required this.itemIndex,
+    required this.item,
   }) : super(key: key);
 
   final int itemIndex;
+  final MainListItemModel item;
 
   @override
   Widget build(BuildContext context) {
+    final myColor = Theme.of(context).colorScheme;
     return Card(
       elevation: 5,
       margin: const EdgeInsets.only(left: 16, bottom: 16),
@@ -28,9 +32,9 @@ class AyahItem extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 width: double.infinity,
-                child: const Text(
-                  'وَإِذَا قِيلَ لَهُمۡ ءَامِنُواْ كَمَآ ءَامَنَ ٱلنَّاسُ قَالُوٓاْ أَنُؤۡمِنُ كَمَآ ءَامَنَ ٱلسُّفَهَآءُۗ أَلَآ إِنَّهُمۡ هُمُ ٱلسُّفَهَآءُ وَلَٰكِن لَّا يَعۡلَمُونَ ',
-                  style: TextStyle(
+                child: Text(
+                  item.ayahArabic,
+                  style: const TextStyle(
                     fontSize: 25,
                     fontFamily: 'Quran',
                   ),
@@ -41,12 +45,20 @@ class AyahItem extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 width: double.infinity,
-                child: const Text(
-                  'Когда им говорят: «Уверуйте так, как уверовали люди», - они отвечают: «Неужели мы уверуем так, как уверовали глупцы?». Воистину, именно они являются глупцами, но они не знают этого.',
-                  style: TextStyle(
+                child: Text(
+                  item.ayahTranslation,
+                  style: const TextStyle(
                     fontSize: 18,
+                    fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                item.ayahSource,
+                style: TextStyle(
+                  color: myColor.mainAccentColor.withOpacity(0.5),
                 ),
               ),
               ExpansionTile(
@@ -61,15 +73,16 @@ class AyahItem extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               CircleAvatar(
-                backgroundColor: Theme.of(context).colorScheme.iconPrimaryColor.withOpacity(0.5),
+                backgroundColor: myColor.iconPrimaryColor.withOpacity(0.5),
                 child: Text(
-                  '$itemIndex',
+                  item.id.toString(),
                   style: TextStyle(
                     fontSize: 16,
-                    color: Theme.of(context).colorScheme.mainPrimaryColor.withOpacity(0.5),
+                    color: myColor.mainPrimaryColor.withOpacity(0.5),
                   ),
                 ),
               ),
+              const SizedBox(height: 16),
             ],
           ),
         ),
