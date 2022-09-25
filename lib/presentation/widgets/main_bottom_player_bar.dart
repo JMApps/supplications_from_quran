@@ -9,6 +9,8 @@ class MainBottomPlayerBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final readPlayer = context.read<MainListState>();
+    final myColor = Theme.of(context).colorScheme;
     return Container(
       height: 70,
       decoration: const BoxDecoration(
@@ -38,15 +40,15 @@ class MainBottomPlayerBar extends StatelessWidget {
               splashRadius: 20,
               icon: const Icon(CupertinoIcons.backward_end, color: Colors.white),
               onPressed: () {
-                context.read<MainListState>().previousTrack();
+                readPlayer.previousTrack();
               },
             ),
             IconButton(
               padding: EdgeInsets.zero,
               splashRadius: 20,
-              icon: const Icon(CupertinoIcons.play, color: Colors.white),
+              icon: Icon(context.watch<MainListState>().getPlayingState ? CupertinoIcons.pause : CupertinoIcons.play, color: Colors.white),
               onPressed: () {
-                context.read<MainListState>().playPause();
+                readPlayer.playPause();
               },
             ),
             IconButton(
@@ -54,14 +56,16 @@ class MainBottomPlayerBar extends StatelessWidget {
               splashRadius: 20,
               icon: const Icon(CupertinoIcons.forward_end, color: Colors.white),
               onPressed: () {
-                context.read<MainListState>().nextTrack();
+                readPlayer.nextTrack();
               },
             ),
             IconButton(
               padding: EdgeInsets.zero,
               splashRadius: 20,
-              icon: const Icon(CupertinoIcons.arrow_2_circlepath, color: Colors.white),
-              onPressed: () {},
+              icon: Icon(CupertinoIcons.arrow_2_circlepath, color: readPlayer.getTrackLoopState ? myColor.mainAccentColor : Colors.white),
+              onPressed: () {
+                readPlayer.trackLoopState();
+              },
             ),
           ],
         ),
