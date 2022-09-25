@@ -9,7 +9,11 @@ class MainListState with ChangeNotifier {
 
   final _mainListController = PageController(initialPage: 0, viewportFraction: 0.65);
 
-  PageController get geMainListController => _mainListController;
+  PageController get getMainListController => _mainListController;
+
+  final _favoriteListController = PageController(initialPage: 0, viewportFraction: 0.65);
+
+  PageController get getFavoriteListController => _favoriteListController;
 
   final DatabaseQuery _databaseQuery = DatabaseQuery();
 
@@ -101,6 +105,11 @@ class MainListState with ChangeNotifier {
       curve: Curves.easeInQuad,
     );
     _player.seek(Duration.zero, index: randomAyah.nextInt(55));
+  }
+
+  addRemoveFavorite(int state, int itemId) async {
+    await _databaseQuery.addRemoveFavoriteChapter(state, itemId);
+    notifyListeners();
   }
 
   @override

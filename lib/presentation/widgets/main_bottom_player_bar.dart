@@ -67,6 +67,22 @@ class MainBottomPlayerBar extends StatelessWidget {
                 readPlayer.trackLoopState();
               },
             ),
+            IconButton(
+              padding: EdgeInsets.zero,
+              splashRadius: 20,
+              icon: const Icon(CupertinoIcons.bookmark_fill, color: Colors.white),
+              onPressed: () {
+                Navigator.pushNamed(context, 'favorite_page');
+              },
+            ),
+            IconButton(
+              padding: EdgeInsets.zero,
+              splashRadius: 20,
+              icon: const Icon(CupertinoIcons.settings, color: Colors.white),
+              onPressed: () {
+
+              },
+            ),
           ],
         ),
       ),

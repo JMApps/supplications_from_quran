@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:supplications_from_quran/presentation/items/ayah_item.dart';
+import 'package:supplications_from_quran/presentation/items/favorite_ayah_item.dart';
 import 'package:supplications_from_quran/until/state/main_list_state.dart';
 import 'package:supplications_from_quran/until/theme/app_theme.dart';
 
-class MainAyahsList extends StatelessWidget {
-  const MainAyahsList({Key? key}) : super(key: key);
+class FavoriteAyahList extends StatelessWidget {
+  const FavoriteAyahList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final myColor = Theme.of(context).colorScheme;
     return FutureBuilder(
-      future: context.watch<MainListState>().getDatabaseQuery.getAllAyahs(),
+      future:
+          context.watch<MainListState>().getDatabaseQuery.getFavoriteAyahs(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return snapshot.hasData
             ? Row(
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 64),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 2, vertical: 64),
                     decoration: BoxDecoration(
                       color: myColor.mainPrimaryColor,
                       borderRadius: const BorderRadius.only(
@@ -32,7 +34,7 @@ class MainAyahsList extends StatelessWidget {
                       ],
                     ),
                     child: SmoothPageIndicator(
-                      controller: context.watch<MainListState>().getMainListController,
+                      controller: context.watch<MainListState>().getFavoriteListController,
                       axisDirection: Axis.vertical,
                       count: snapshot.data!.length,
                       effect: ScrollingDotsEffect(
@@ -49,11 +51,11 @@ class MainAyahsList extends StatelessWidget {
                   ),
                   Expanded(
                     child: PageView.builder(
-                      controller: context.watch<MainListState>().getMainListController,
+                      controller: context.watch<MainListState>().getFavoriteListController,
                       scrollDirection: Axis.vertical,
                       itemCount: snapshot.data!.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return AyahItem(
+                        return FavoriteAyahItem(
                           itemIndex: index,
                           item: snapshot.data![index],
                         );
@@ -63,7 +65,12 @@ class MainAyahsList extends StatelessWidget {
                 ],
               )
             : const Center(
-                child: Text('Не удалось загрузить данные'),
+                child: Text(
+                  'Избранного нет',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
               );
       },
     );
