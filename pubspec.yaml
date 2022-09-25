@@ -24,6 +24,7 @@ dependencies:
   flutter_colorpicker: ^1.0.3
   smooth_page_indicator: ^1.0.0+2
   just_audio: ^0.9.29
+  screenshot: ^1.2.3
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +39,7 @@ flutter:
   assets:
   - assets/databases/
   - assets/audios/
+  - assets/pictures/
   fonts:
     - family: Gilroy
       fonts:

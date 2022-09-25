@@ -67,8 +67,8 @@ class AyahItem extends StatelessWidget {
                 childrenPadding: EdgeInsets.zero,
                 maintainState: true,
                 title: const Text(''),
-                children: const [
-                  BottomButtons(),
+                children: [
+                  BottomButtons(item: item),
                 ],
               ),
               const SizedBox(height: 16),
