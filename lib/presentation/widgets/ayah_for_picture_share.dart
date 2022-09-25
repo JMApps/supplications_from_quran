@@ -36,7 +36,6 @@ class AyahForPictureShare extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(height: 16),
                 Container(
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   width: double.infinity,
@@ -72,7 +71,7 @@ class AyahForPictureShare extends StatelessWidget {
                       ),
                       const SizedBox(width: 16),
                       Image.asset(
-                        'assets/pictures/asgp.png',
+                        'assets/pictures/app_icon.png',
                         width: 40,
                         height: 40,
                       ),
