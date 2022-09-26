@@ -7,11 +7,13 @@ import 'package:supplications_from_quran/data/local/database/service/database_qu
 class MainListState with ChangeNotifier {
   final _player = AudioPlayer();
 
-  final _mainListController = PageController(initialPage: 0, viewportFraction: 0.65);
+  final _mainListController =
+      PageController(initialPage: 0, viewportFraction: 0.65);
 
   PageController get getMainListController => _mainListController;
 
-  final _favoriteListController = PageController(initialPage: 0, viewportFraction: 0.65);
+  final _favoriteListController =
+      PageController(initialPage: 0, viewportFraction: 0.65);
 
   PageController get getFavoriteListController => _favoriteListController;
 
@@ -51,7 +53,8 @@ class MainListState with ChangeNotifier {
 
     _player.currentIndexStream.listen(
       (index) {
-        _currentTrackIndex = index!;
+        index ??= 0;
+        _currentTrackIndex = index;
         toPageAyah(index);
       },
     );
@@ -90,11 +93,13 @@ class MainListState with ChangeNotifier {
   }
 
   toPageAyah(int index) {
-    _mainListController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 150),
-      curve: Curves.easeInQuad,
-    );
+    if (_mainListController.hasClients) {
+      _mainListController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.easeInQuad,
+      );
+    }
   }
 
   toRandomAyah() {

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:supplications_from_quran/presentation/widgets/dialog_settings.dart';
 import 'package:supplications_from_quran/until/state/main_list_state.dart';
 import 'package:supplications_from_quran/until/theme/app_theme.dart';
 
@@ -80,7 +81,12 @@ class MainBottomPlayerBar extends StatelessWidget {
               splashRadius: 20,
               icon: const Icon(CupertinoIcons.settings, color: Colors.white),
               onPressed: () {
-
+                showCupertinoModalPopup(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return const DialogSettings();
+                  },
+                );
               },
             ),
           ],
