@@ -11,7 +11,7 @@ class AppTheme {
     ),
     fontFamily: 'Gilroy',
     colorScheme: const ColorScheme.light(
-      primary: Colors.redAccent,
+      primary: Colors.red,
     ),
     cardColor: const Color(0xFFC5CAE9),
     dividerColor: Colors.transparent,
@@ -27,7 +27,7 @@ class AppTheme {
     ),
     fontFamily: 'Gilroy',
     colorScheme: const ColorScheme.dark(
-      primary: Colors.greenAccent,
+      primary: Colors.green,
     ),
     cardColor: const Color(0xff2c2c34),
     dividerColor: Colors.transparent,
@@ -40,7 +40,7 @@ extension ColorSchemeS on ColorScheme {
       : const Color(0xff2c2c34);
 
   Color get mainAccentColor => brightness == Brightness.light
-      ? const Color(0xFFF44336)
+      ? const Color(0xFFD32F2F)
       : const Color(0xFF00C853);
 
   Color get dotColor => brightness == Brightness.light
@@ -52,6 +52,6 @@ extension ColorSchemeS on ColorScheme {
       : const Color(0xff2c2c34);
 
   Color get iconPrimaryColor => brightness == Brightness.light
-      ? const Color(0xFFE57373)
-      : const Color(0xFF69F0AE);
+      ? const Color(0xFFD55454)
+      : const Color(0xFF00C853);
 }

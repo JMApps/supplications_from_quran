@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "supp_logo-1.jpg",
+      "filename" : "sfq_logo_splash-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "supp_logo.jpg",
+      "filename" : "sfq_logo_splash.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "supp_logo-2.jpg",
+      "filename" : "sfq_logo_splash-1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

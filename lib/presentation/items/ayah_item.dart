@@ -18,15 +18,13 @@ class AyahItem extends StatelessWidget {
     final myColor = Theme.of(context).colorScheme;
     return Card(
       elevation: 5,
-      margin: const EdgeInsets.only(left: 16, bottom: 16),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(25),
-          bottomLeft: Radius.circular(25),
-        ),
+      margin: const EdgeInsets.all(16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25),
       ),
       child: Center(
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
               Container(
@@ -78,7 +76,7 @@ class AyahItem extends StatelessWidget {
                   item.id.toString(),
                   style: TextStyle(
                     fontSize: 16,
-                    color: myColor.mainPrimaryColor.withOpacity(0.5),
+                    color: myColor.mainPrimaryColor,
                   ),
                 ),
               ),
