@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/data/local/database/model/main_list_item_model.dart';
 import 'package:supplications_from_quran/presentation/widgets/bottom_buttons.dart';
+import 'package:supplications_from_quran/until/state/settings_state.dart';
 import 'package:supplications_from_quran/until/theme/app_theme.dart';
 
 class FavoriteAyahItem extends StatelessWidget {
@@ -16,6 +18,7 @@ class FavoriteAyahItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final myColor = Theme.of(context).colorScheme;
+    final readSettings = context.read<SettingsState>();
     return Card(
       elevation: 5,
       margin: const EdgeInsets.all(16),
@@ -32,8 +35,9 @@ class FavoriteAyahItem extends StatelessWidget {
                 width: double.infinity,
                 child: Text(
                   item.ayahArabic,
-                  style: const TextStyle(
-                    fontSize: 25,
+                  style: TextStyle(
+                    color: Color(readSettings.getTextAyahArabicColor),
+                    fontSize: readSettings.getTextAyahArabicSize + 3,
                     fontFamily: 'Quran',
                   ),
                   textDirection: TextDirection.rtl,
@@ -45,8 +49,9 @@ class FavoriteAyahItem extends StatelessWidget {
                 width: double.infinity,
                 child: Text(
                   item.ayahTranslation,
-                  style: const TextStyle(
-                    fontSize: 18,
+                  style: TextStyle(
+                    color: Color(readSettings.getTextAyahTranslationColor),
+                    fontSize: readSettings.getTextAyahTranslationSize,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
@@ -76,7 +81,7 @@ class FavoriteAyahItem extends StatelessWidget {
                   item.id.toString(),
                   style: TextStyle(
                     fontSize: 16,
-                    color: myColor.mainPrimaryColor.withOpacity(0.5),
+                    color: myColor.mainPrimaryColor,
                   ),
                 ),
               ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/data/local/database/model/main_list_item_model.dart';
 import 'package:supplications_from_quran/presentation/widgets/bottom_buttons.dart';
+import 'package:supplications_from_quran/until/state/settings_state.dart';
 import 'package:supplications_from_quran/until/theme/app_theme.dart';
 
 class AyahItem extends StatelessWidget {
@@ -16,6 +18,7 @@ class AyahItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final myColor = Theme.of(context).colorScheme;
+    final watchSettings = context.watch<SettingsState>();
     return Card(
       elevation: 5,
       margin: const EdgeInsets.all(16),
@@ -32,8 +35,9 @@ class AyahItem extends StatelessWidget {
                 width: double.infinity,
                 child: Text(
                   item.ayahArabic,
-                  style: const TextStyle(
-                    fontSize: 25,
+                  style: TextStyle(
+                    color: Color(watchSettings.getTextAyahArabicColor),
+                    fontSize: watchSettings.getTextAyahArabicSize + 3,
                     fontFamily: 'Quran',
                   ),
                   textDirection: TextDirection.rtl,
@@ -45,8 +49,9 @@ class AyahItem extends StatelessWidget {
                 width: double.infinity,
                 child: Text(
                   item.ayahTranslation,
-                  style: const TextStyle(
-                    fontSize: 18,
+                  style: TextStyle(
+                    color: Color(watchSettings.getTextAyahTranslationColor),
+                    fontSize: watchSettings.getTextAyahTranslationSize,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
