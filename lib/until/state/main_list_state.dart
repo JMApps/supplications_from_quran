@@ -92,6 +92,10 @@ class MainListState with ChangeNotifier {
     notifyListeners();
   }
 
+  playerStop() {
+    _player.stop();
+  }
+
   toPageAyah(int index) {
     if (_mainListController.hasClients) {
       _mainListController.animateToPage(

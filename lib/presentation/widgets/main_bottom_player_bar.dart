@@ -73,6 +73,7 @@ class MainBottomPlayerBar extends StatelessWidget {
               splashRadius: 20,
               icon: const Icon(CupertinoIcons.bookmark_fill, color: Colors.white),
               onPressed: () {
+                readPlayer.playerStop();
                 Navigator.pushNamed(context, 'favorite_page');
               },
             ),
