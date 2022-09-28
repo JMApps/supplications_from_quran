@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/until/state/settings_state.dart';
 
@@ -25,9 +26,9 @@ class DialogSettings extends StatelessWidget {
               children: [
                 ListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: const Text(
-                    'Размер текста аята',
-                    style: TextStyle(
+                  title: Text(
+                    AppLocalizations.of(context)!.arabic_text_size,
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
@@ -42,9 +43,9 @@ class DialogSettings extends StatelessWidget {
                 ),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: const Text(
-                    'Размер текста перевода',
-                    style: TextStyle(
+                  title: Text(
+                    AppLocalizations.of(context)!.translation_text_size,
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
@@ -60,15 +61,15 @@ class DialogSettings extends StatelessWidget {
                 ListTile(
                   enabled: true,
                   contentPadding: EdgeInsets.zero,
-                  title: const Text(
-                    'Цвет текста аята',
-                    style: TextStyle(
+                  title: Text(
+                    AppLocalizations.of(context)!.arabic_text_color,
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
-                  subtitle: const Text(
-                    'Выберите цвет',
-                    style: TextStyle(
+                  subtitle: Text(
+                    AppLocalizations.of(context)!.select_color,
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
@@ -101,15 +102,15 @@ class DialogSettings extends StatelessWidget {
                 ListTile(
                   enabled: true,
                   contentPadding: EdgeInsets.zero,
-                  title: const Text(
-                    'Цвет текста перевода',
-                    style: TextStyle(
+                  title: Text(
+                    AppLocalizations.of(context)!.translation_text_color,
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
-                  subtitle: const Text(
-                    'Выберите цвет',
-                    style: TextStyle(
+                  subtitle: Text(
+                    AppLocalizations.of(context)!.select_color,
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
@@ -127,11 +128,9 @@ class DialogSettings extends StatelessWidget {
                               ),
                             ),
                             content: BlockPicker(
-                              pickerColor:
-                                  readSettings.getTextAyahTranslationColor,
+                              pickerColor: readSettings.getTextAyahTranslationColor,
                               onColorChanged: (color) {
-                                readSettings
-                                    .changeTextAyahTranslationColor(color);
+                                readSettings.changeTextAyahTranslationColor(color);
                                 Navigator.of(context).pop();
                               },
                             ),

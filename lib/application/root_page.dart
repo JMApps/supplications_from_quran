@@ -5,6 +5,7 @@ import 'package:supplications_from_quran/until/route/app_route.dart';
 import 'package:supplications_from_quran/until/state/main_list_state.dart';
 import 'package:supplications_from_quran/until/state/settings_state.dart';
 import 'package:supplications_from_quran/until/theme/app_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -22,6 +23,8 @@ class RootPage extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         onGenerateRoute: AppRoute().onGeneratorRoute,

@@ -4,6 +4,7 @@ import 'package:clipboard/clipboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -41,12 +42,13 @@ class BottomButtons extends StatelessWidget {
           ),
           onPressed: () {
             FlutterClipboard.copy(
-                    '${item.ayahArabic}\n\n${item.ayahTranslation}\n\n${item.ayahSource}').then(
+                    '${item.ayahArabic}\n\n${item.ayahTranslation}\n\n${item.ayahSource}')
+                .then(
               (value) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     backgroundColor: myColors.mainPrimaryColor,
-                    content: const Text('Скопировано'),
+                    content: Text(AppLocalizations.of(context)!.copied),
                     duration: const Duration(milliseconds: 750),
                   ),
                 );
@@ -85,8 +87,8 @@ class BottomButtons extends StatelessWidget {
               delay: const Duration(seconds: 0),
             );
             Directory? pictureDirectory = Platform.isAndroid
-                    ? await getExternalStorageDirectory()
-                    : await getApplicationDocumentsDirectory();
+                ? await getExternalStorageDirectory()
+                : await getApplicationDocumentsDirectory();
             File file = File('${pictureDirectory!.path}/ayah_${item.id}.jpg');
             await file.writeAsBytes(unit8List);
 
@@ -95,8 +97,10 @@ class BottomButtons extends StatelessWidget {
                 : await getApplicationSupportDirectory();
 
             String path = join(audioDirectory!.path, 'ayah_${item.id}.mp3');
-            ByteData data = await rootBundle.load(join('assets/audios', 'ayah_${item.id}.mp3'));
-            List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+            ByteData data = await rootBundle
+                .load(join('assets/audios', 'ayah_${item.id}.mp3'));
+            List<int> bytes =
+                data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
             File fileAudio = File(path);
             await fileAudio.writeAsBytes(bytes);
 
@@ -112,16 +116,22 @@ class BottomButtons extends StatelessWidget {
             radius: 25,
             backgroundColor: myColors.iconPrimaryColor,
             child: Icon(
-              item.favoriteState == 1 ? CupertinoIcons.bookmark_fill : CupertinoIcons.bookmark,
+              item.favoriteState == 1
+                  ? CupertinoIcons.bookmark_fill
+                  : CupertinoIcons.bookmark,
               color: myColors.mainPrimaryColor,
             ),
           ),
           onPressed: () {
-            context.read<MainListState>().addRemoveFavorite(item.favoriteState == 0 ? 1 : 0, item.id);
+            context
+                .read<MainListState>()
+                .addRemoveFavorite(item.favoriteState == 0 ? 1 : 0, item.id);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: myColors.mainPrimaryColor,
-                content: Text(item.favoriteState == 0 ? 'Добавлено в избранное' : 'Удалено'),
+                content: Text(item.favoriteState == 0
+                    ? AppLocalizations.of(context)!.added_to_favorite
+                    : AppLocalizations.of(context)!.deleted_from_favorite),
                 duration: const Duration(milliseconds: 750),
               ),
             );

@@ -1,0 +1,14 @@
+{
+  "app_name": "Supplications from Quran",
+  "bookmarks": "Favorites",
+  "bookmarks_is_empty": "No favorite",
+  "data_is_empty": "Failed to load data",
+  "arabic_text_size": "Arabic text size",
+  "translation_text_size": "Translation text size",
+  "arabic_text_color": "Color text ayah",
+  "translation_text_color": "Color text translation",
+  "select_color": "Choice color",
+  "added_to_favorite": "Added to favorite",
+  "deleted_from_favorite": "Deleted",
+  "copied": "Copied"
+}

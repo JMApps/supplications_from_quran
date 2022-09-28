@@ -1,0 +1,14 @@
+{
+  "app_name": "Мольбы из Корана",
+  "bookmarks": "Избранное",
+  "bookmarks_is_empty": "Избранного нет",
+  "data_is_empty": "Не удалось загрузить данные",
+  "arabic_text_size": "Размер текста аята",
+  "translation_text_size": "Размер текста перевода",
+  "arabic_text_color": "Цвет текста аята",
+  "translation_text_color": "Цвет текста перевода",
+  "select_color": "Выберите цвет",
+  "added_to_favorite": "Добавлено в избранное",
+  "deleted_from_favorite": "Удалено",
+  "copied": "Скопировано"
+}
