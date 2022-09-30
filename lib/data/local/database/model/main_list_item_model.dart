@@ -1,5 +1,3 @@
-import 'dart:ui' as ui;
-
 class MainListItemModel {
   final int id;
   final String ayahArabic;
@@ -17,11 +15,10 @@ class MainListItemModel {
     required this.favoriteState,
   });
 
-
   MainListItemModel.fromMap(dynamic object)
       : id = object['_id'],
         ayahArabic = object['ayah_arabic'],
-        ayahTranslation = object['ayah_translation_${ui.window.locale.languageCode}'],
+        ayahTranslation =object['ayah_translation_ru'],
         ayahSource = object['ayah_source'],
         nameAudio = object['name_audio'],
         favoriteState = object['favorite_state'];

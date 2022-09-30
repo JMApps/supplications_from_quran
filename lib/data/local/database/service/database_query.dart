@@ -1,7 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:supplications_from_quran/data/local/database/model/main_list_item_model.dart';
 import 'package:supplications_from_quran/data/local/database/service/database_service.dart';
 
 class DatabaseQuery {
+
+  final BuildContext context;
+
+  DatabaseQuery(this.context);
   DatabaseService con = DatabaseService();
 
   Future<List<MainListItemModel>> getAllAyahs() async {

@@ -5,19 +5,22 @@ import 'package:just_audio/just_audio.dart';
 import 'package:supplications_from_quran/data/local/database/service/database_query.dart';
 
 class MainListState with ChangeNotifier {
+
+  final BuildContext context;
+
+  MainListState(this.context);
+
   final _player = AudioPlayer();
 
-  final _mainListController =
-      PageController(initialPage: 0, viewportFraction: 0.65);
+  final _mainListController = PageController(initialPage: 0, viewportFraction: 0.65);
 
   PageController get getMainListController => _mainListController;
 
-  final _favoriteListController =
-      PageController(initialPage: 0, viewportFraction: 0.65);
+  final _favoriteListController = PageController(initialPage: 0, viewportFraction: 0.65);
 
   PageController get getFavoriteListController => _favoriteListController;
 
-  final DatabaseQuery _databaseQuery = DatabaseQuery();
+  final DatabaseQuery _databaseQuery = DatabaseQuery(context);
 
   DatabaseQuery get getDatabaseQuery => _databaseQuery;
 

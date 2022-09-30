@@ -15,7 +15,7 @@ class RootPage extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<MainListState>(
-          create: (_) => MainListState(),
+          create: (_) => MainListState(context),
         ),
         ChangeNotifierProvider<SettingsState>(
           create: (_) => SettingsState(),

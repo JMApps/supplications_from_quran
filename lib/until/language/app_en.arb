@@ -1,4 +1,5 @@
 {
+  "database_name": "Supplications_en",
   "app_name": "Supplications from Quran",
   "bookmarks": "Favorites",
   "bookmarks_is_empty": "No favorite",
