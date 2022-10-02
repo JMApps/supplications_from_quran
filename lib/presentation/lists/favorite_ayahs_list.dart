@@ -4,6 +4,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:supplications_from_quran/presentation/items/favorite_ayah_item.dart';
 import 'package:supplications_from_quran/until/state/main_list_state.dart';
 import 'package:supplications_from_quran/until/theme/app_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FavoriteAyahList extends StatelessWidget {
   const FavoriteAyahList({Key? key}) : super(key: key);
@@ -64,10 +65,10 @@ class FavoriteAyahList extends StatelessWidget {
                   ),
                 ],
               )
-            : const Center(
+            : Center(
                 child: Text(
-                  'Избранного нет',
-                  style: TextStyle(
+                  AppLocalizations.of(context)!.bookmarks_is_empty,
+                  style: const TextStyle(
                     fontSize: 18,
                   ),
                 ),

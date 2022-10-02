@@ -18,7 +18,7 @@ class MainListItemModel {
   MainListItemModel.fromMap(dynamic object)
       : id = object['_id'],
         ayahArabic = object['ayah_arabic'],
-        ayahTranslation = object['ayah_translation'],
+        ayahTranslation =object['ayah_translation_ru'],
         ayahSource = object['ayah_source'],
         nameAudio = object['name_audio'],
         favoriteState = object['favorite_state'];

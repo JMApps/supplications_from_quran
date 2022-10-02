@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:supplications_from_quran/presentation/items/ayah_item.dart';
@@ -18,7 +19,8 @@ class MainAyahsList extends StatelessWidget {
             ? Row(
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 64),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 2, vertical: 64),
                     decoration: BoxDecoration(
                       color: myColor.mainPrimaryColor,
                       borderRadius: const BorderRadius.only(
@@ -32,7 +34,8 @@ class MainAyahsList extends StatelessWidget {
                       ],
                     ),
                     child: SmoothPageIndicator(
-                      controller: context.watch<MainListState>().getMainListController,
+                      controller:
+                          context.watch<MainListState>().getMainListController,
                       axisDirection: Axis.vertical,
                       count: snapshot.data!.length,
                       effect: ScrollingDotsEffect(
@@ -49,7 +52,8 @@ class MainAyahsList extends StatelessWidget {
                   ),
                   Expanded(
                     child: PageView.builder(
-                      controller: context.watch<MainListState>().getMainListController,
+                      controller:
+                          context.watch<MainListState>().getMainListController,
                       scrollDirection: Axis.vertical,
                       itemCount: snapshot.data!.length,
                       itemBuilder: (BuildContext context, int index) {
@@ -62,8 +66,8 @@ class MainAyahsList extends StatelessWidget {
                   ),
                 ],
               )
-            : const Center(
-                child: Text('Не удалось загрузить данные'),
+            : Center(
+                child: Text(AppLocalizations.of(context)!.data_is_empty),
               );
       },
     );

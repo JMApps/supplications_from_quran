@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FavoriteAppBar extends StatelessWidget {
   const FavoriteAppBar({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class FavoriteAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text('Избранное'),
+      title: Text(AppLocalizations.of(context)!.bookmarks),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.elliptical(55, 35),
