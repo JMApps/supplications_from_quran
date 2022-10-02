@@ -44,10 +44,8 @@ class DatabaseService {
         Exception('Invalid database');
       }
 
-      ByteData data =
-          await rootBundle.load(join('assets/databases', 'Supplications.db'));
-      List<int> bytes =
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+      ByteData data = await rootBundle.load(join('assets/databases', 'Supplications.db'));
+      List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
     }
 

@@ -20,7 +20,7 @@ class MainListState with ChangeNotifier {
 
   PageController get getFavoriteListController => _favoriteListController;
 
-  final DatabaseQuery _databaseQuery = DatabaseQuery(context);
+  final DatabaseQuery _databaseQuery = DatabaseQuery();
 
   DatabaseQuery get getDatabaseQuery => _databaseQuery;
 

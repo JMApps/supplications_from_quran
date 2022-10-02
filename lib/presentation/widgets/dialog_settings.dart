@@ -73,7 +73,7 @@ class DialogSettings extends StatelessWidget {
                     ),
                   ),
                   trailing: CircleAvatar(
-                    backgroundColor: watchSettings.getTextAyahArabicColor,
+                    backgroundColor: Color(watchSettings.getTextAyahArabicColor),
                     radius: 15,
                     child: InkWell(
                       onTap: () {
@@ -86,7 +86,7 @@ class DialogSettings extends StatelessWidget {
                               ),
                             ),
                             content: BlockPicker(
-                              pickerColor: readSettings.getTextAyahArabicColor,
+                              pickerColor: Color(readSettings.getTextAyahArabicColor),
                               onColorChanged: (color) {
                                 readSettings.changeTextAyahArabicColor(color);
                                 Navigator.of(context).pop();
@@ -114,7 +114,7 @@ class DialogSettings extends StatelessWidget {
                     ),
                   ),
                   trailing: CircleAvatar(
-                    backgroundColor: watchSettings.getTextAyahTranslationColor,
+                    backgroundColor: Color(watchSettings.getTextAyahTranslationColor),
                     radius: 15,
                     child: InkWell(
                       onTap: () {
@@ -127,11 +127,9 @@ class DialogSettings extends StatelessWidget {
                               ),
                             ),
                             content: BlockPicker(
-                              pickerColor:
-                                  readSettings.getTextAyahTranslationColor,
+                              pickerColor: Color(readSettings.getTextAyahTranslationColor),
                               onColorChanged: (color) {
-                                readSettings
-                                    .changeTextAyahTranslationColor(color);
+                                readSettings.changeTextAyahTranslationColor(color);
                                 Navigator.of(context).pop();
                               },
                             ),
