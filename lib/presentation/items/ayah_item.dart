@@ -19,6 +19,7 @@ class AyahItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final myColor = Theme.of(context).colorScheme;
     final watchSettings = context.watch<SettingsState>();
+    final currentBrightness = MediaQuery.of(context).platformBrightness.toString();
     return Card(
       elevation: 5,
       margin: const EdgeInsets.all(16),
@@ -36,7 +37,7 @@ class AyahItem extends StatelessWidget {
                 child: Text(
                   item.ayahArabic,
                   style: TextStyle(
-                    color: Color(watchSettings.getTextAyahArabicColor),
+                    color: currentBrightness == 'light' ? Color(watchSettings.getTextAyahArabicColor) : Colors.white,
                     fontSize: watchSettings.getTextAyahArabicSize + 3,
                     fontFamily: 'Quran',
                   ),
@@ -50,7 +51,7 @@ class AyahItem extends StatelessWidget {
                 child: Text(
                   item.ayahTranslation,
                   style: TextStyle(
-                    color: Color(watchSettings.getTextAyahTranslationColor),
+                    color: currentBrightness == 'light' ? Color(watchSettings.getTextAyahTranslationColor) : Colors.grey,
                     fontSize: watchSettings.getTextAyahTranslationSize,
                     fontWeight: FontWeight.bold,
                   ),
