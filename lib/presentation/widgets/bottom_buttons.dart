@@ -48,7 +48,12 @@ class BottomButtons extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     backgroundColor: myColors.mainPrimaryColor,
-                    content: Text(AppLocalizations.of(context)!.copied),
+                    content: Text(
+                      AppLocalizations.of(context)!.copied,
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                     duration: const Duration(milliseconds: 750),
                   ),
                 );
@@ -129,9 +134,14 @@ class BottomButtons extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: myColors.mainPrimaryColor,
-                content: Text(item.favoriteState == 0
-                    ? AppLocalizations.of(context)!.added_to_favorite
-                    : AppLocalizations.of(context)!.deleted_from_favorite),
+                content: Text(
+                  item.favoriteState == 0
+                      ? AppLocalizations.of(context)!.added_to_favorite
+                      : AppLocalizations.of(context)!.deleted_from_favorite,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
                 duration: const Duration(milliseconds: 750),
               ),
             );

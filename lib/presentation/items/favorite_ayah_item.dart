@@ -19,7 +19,7 @@ class FavoriteAyahItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final myColor = Theme.of(context).colorScheme;
     final readSettings = context.read<SettingsState>();
-    final currentBrightness = MediaQuery.of(context).platformBrightness.toString();
+    final currentBrightness = MediaQuery.of(context).platformBrightness;
     return Card(
       elevation: 5,
       margin: const EdgeInsets.all(16),
@@ -37,7 +37,7 @@ class FavoriteAyahItem extends StatelessWidget {
                 child: Text(
                   item.ayahArabic,
                   style: TextStyle(
-                    color: currentBrightness == 'light' ? Color(readSettings.getTextAyahArabicColor) : Colors.white,
+                    color: currentBrightness == Brightness.light ? Color(readSettings.getTextAyahArabicColor) : Colors.white,
                     fontSize: readSettings.getTextAyahArabicSize + 3,
                     fontFamily: 'Quran',
                   ),
@@ -51,7 +51,7 @@ class FavoriteAyahItem extends StatelessWidget {
                 child: Text(
                   item.ayahTranslation,
                   style: TextStyle(
-                    color: currentBrightness == 'light' ? Color(readSettings.getTextAyahTranslationColor) : Colors.grey,
+                    color: currentBrightness == Brightness.light ? Color(readSettings.getTextAyahTranslationColor) : Colors.grey,
                     fontSize: readSettings.getTextAyahTranslationSize,
                     fontWeight: FontWeight.bold,
                   ),
