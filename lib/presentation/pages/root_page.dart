@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:supplications_from_quran/application/strings/app_strings.dart';
+import 'package:supplications_from_quran/application/themes/app_themes.dart';
 import 'package:supplications_from_quran/presentation/pages/main_page.dart';
 
 class RootPage extends StatelessWidget {
@@ -6,10 +8,12 @@ class RootPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Мольбы из Корана',
-      home: MainPage(),
+      title: AppStrings.appName,
+      theme: AppThemes.lightTheme,
+      darkTheme: AppThemes.darkTheme,
+      home: const MainPage(),
     );
   }
 }

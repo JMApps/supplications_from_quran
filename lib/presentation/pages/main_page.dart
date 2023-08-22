@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supplications_from_quran/application/strings/app_strings.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -7,7 +8,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Мольбы из Корана'),
+        title: const Text(AppStrings.appName),
       ),
     );
   }
