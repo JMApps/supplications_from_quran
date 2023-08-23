@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:supplications_from_quran/application/strings/app_strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -8,7 +8,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(AppStrings.appName),
+        title: Text(AppLocalizations.of(context)!.appName),
       ),
     );
   }
