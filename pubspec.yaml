@@ -1,7 +1,7 @@
 name: supplications_from_quran
-description: A new Flutter project.
+description: Supplications from the Quran
 
-publish_to: 'none' #
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -15,7 +15,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.5
-  hive_flutter: ^1.1.0
+  hive_flutter: ^2.0.0-dev
   sqflite: ^2.3.0
   path: ^1.8.3
   path_provider: ^2.1.0
@@ -25,6 +25,12 @@ dependencies:
   responsive_builder: ^0.7.0
   wakelock_plus: ^1.1.1
   intl: ^0.18.1
+  salomon_bottom_bar: ^3.3.2
+  share_plus: ^7.1.0
+  clipboard: ^0.1.3
+  just_audio: ^0.9.34
+  screenshot: ^2.1.0
+  scrollable_positioned_list: ^0.3.8
 
 dev_dependencies:
   flutter_test:
@@ -36,3 +42,28 @@ flutter:
   uses-material-design: true
   generate: true
 
+  assets:
+    - assets/databases/
+    - assets/audios/
+    - assets/fonts/
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/montserrat_medium.ttf
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/gilroy_medium.ttf
+    - family: Nexa
+      fonts:
+        - asset: assets/fonts/nexa_reqular.ttf
+
+    - family: Uthmani
+      fonts:
+        - asset: assets/fonts/uthmani.ttf
+    - family: Hafs
+      fonts:
+        - asset: assets/fonts/hafs.ttf
+    - family: Scheherazade
+      fonts:
+        - asset: assets/fonts/scheherazade.ttf
