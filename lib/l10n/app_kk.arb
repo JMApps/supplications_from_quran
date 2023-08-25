@@ -1,3 +1,27 @@
 {
-  "appName": "Құраннан Дуалар"
+  "@@locale": "kk",
+  "appName": "Құран Дұасы",
+  "cards": "Карталар",
+  "pages": "Беттер",
+  "bookmarks": "Барқа",
+  "bookmarksIsEmpty": "Барқа жоқ",
+  "settings": "Параметрлер",
+  "copied": "Көшірілді",
+  "added": "Қосылды",
+  "removed": "Алып тұрылды",
+  "randomAyah": "Кесік Аят",
+  "arabicTextFont": "Арап Шрифты",
+  "textFont": "Тілдеңі Шрифты",
+  "arabicAlignText": "Аят Жатысуы",
+  "alignText": "Тілдегі Мәтіннің Жатысуы",
+  "arabicTextSize": "Аят Мәтінін Енгізі",
+  "textSize": "Тілдегі Мәтінін Енгізі",
+  "arabicTextColor": "Аят Мәтінін Тұзы",
+  "textColor": "Тілдегі Мәтінін Тұзы",
+  "forLightTheme": "Ақ Мәзір үшін",
+  "forDarkTheme": "Күн Мәзір үшін",
+  "close": "Жабық",
+  "adaptiveTheme": "Адаптивті Мәзір",
+  "darkTheme": "Күн Мәзір",
+  "displayAlways": "Экран қазірғы жүмісте"
 }

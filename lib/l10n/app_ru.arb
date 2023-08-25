@@ -1,3 +1,27 @@
 {
-  "appName": "Мольбы из Корана"
+  "@@locale": "ru",
+  "appName": "Мольбы из Корана",
+  "cards": "Карточки",
+  "pages": "Страницы",
+  "bookmarks": "Избранное",
+  "bookmarksIsEmpty": "Избранного нет",
+  "settings": "Настройки",
+  "copied": "Скопировано",
+  "added": "Добавлено",
+  "removed": "Удалено",
+  "randomAyah": "Случайный аят",
+  "arabicTextFont": "Арабский шрифт",
+  "textFont": "Шрифт перевода",
+  "arabicAlignText": "Расположение аятов",
+  "alignText": "Расположение текста перевода",
+  "arabicTextSize": "Размер текста аятов",
+  "textSize": "Размер текста перевода",
+  "arabicTextColor": "Цвет текста аятов",
+  "textColor": "Цвет текста перевода",
+  "forLightTheme": "Для светлой темы",
+  "forDarkTheme": "Для темной темы",
+  "close": "Закрыть",
+  "adaptiveTheme": "Адаптивная тема",
+  "darkTheme": "Темная тема",
+  "displayAlways": "Дисплей всегда включён"
 }

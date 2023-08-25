@@ -1,3 +1,27 @@
 {
-  "appName": "Kur'an'dan Dualar"
+  "@@locale": "tr",
+  "appName": "Kur'ân-ı Kerîm'den duâlar",
+  "cards": "Kartlar",
+  "pages": "Sayfalar",
+  "bookmarks": "Favoriler",
+  "bookmarksIsEmpty": "Favoriler yok",
+  "settings": "Ayarlar",
+  "copied": "Kopyalandı",
+  "added": "Eklendi",
+  "removed": "Kaldırıldı",
+  "randomAyah": "Rastgele âyet",
+  "arabicTextFont": "Arapça yazı tipi",
+  "textFont": "Çeviri yazı tipi",
+  "arabicAlignText": "Âyet metin hizalaması",
+  "alignText": "Çeviri metin hizalaması",
+  "arabicTextSize": "Âyet metin boyutu",
+  "textSize": "Çeviri metin boyutu",
+  "arabicTextColor": "Âyet metin rengi",
+  "textColor": "Çeviri metin rengi",
+  "forLightTheme": "Gündüz Modu için",
+  "forDarkTheme": "Gece Modu için",
+  "close": "Kapat",
+  "adaptiveTheme": "Adaptif mod",
+  "darkTheme": "Gece modu",
+  "displayAlways": "Hep açık ekran"
 }

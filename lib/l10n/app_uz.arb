@@ -1,3 +1,27 @@
 {
-  "appName": "Qur'on Duolari"
+  "@@locale": "uz",
+  "appName": "Қуръон Дуолар",
+  "cards": "Карталар",
+  "pages": "Саҳифалар",
+  "bookmarks": "Хатчўплар",
+  "bookmarksIsEmpty": "Хатчўп йўқ",
+  "settings": "Созламалар",
+  "copied": "Нусхаланган",
+  "added": "Қўшилди",
+  "removed": "Олиб ташланди",
+  "randomAyah": "Тасодифий Аят",
+  "arabicTextFont": "Араб Шрифи",
+  "textFont": "Таржима Шрифи",
+  "arabicAlignText": "Аят Ёрлашуви",
+  "alignText": "Таржима Матн Ёрлашуви",
+  "arabicTextSize": "Аят Матн Ҳажи",
+  "textSize": "Таржима Матн Ҳажи",
+  "arabicTextColor": "Аят Матн Ранги",
+  "textColor": "Таржима Матн Ранги",
+  "forLightTheme": "Очиқ Мавзу Учун",
+  "forDarkTheme": "Тунги Мавзу Учун",
+  "close": "Йопиш",
+  "adaptiveTheme": "Адаптив Мавзу",
+  "darkTheme": "Тунги Мавзу",
+  "displayAlways": "Ҳамма Вақтда Экран Ёқ"
 }

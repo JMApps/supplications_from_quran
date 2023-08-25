@@ -1,3 +1,27 @@
 {
-  "appName": "Курандан Дуалар"
+  "@@locale": "az",
+  "appName": "Дуалар Корана",
+  "cards": "Картлар",
+  "pages": "Сахифәләр",
+  "bookmarks": "Ишарәләр",
+  "bookmarksIsEmpty": "Ишарә ёхдур",
+  "settings": "Сазламалар",
+  "copied": "Копияланган",
+  "added": "Әләвә едилди",
+  "removed": "Силнди",
+  "randomAyah": "Тасаддуфи аят",
+  "arabicTextFont": "Араб шрифти",
+  "textFont": "Тәржимә щрифти",
+  "arabicAlignText": "Аят ёрләшмәси",
+  "alignText": "Тәржимә мәтни ёрләшмәси",
+  "arabicTextSize": "Аят мәтни Өлчүсү",
+  "textSize": "Тәржимә мәтни Өлчүсү",
+  "arabicTextColor": "Аят мәтни рәнги",
+  "textColor": "Тәржимә мәтни рәнги",
+  "forLightTheme": "Ачық тема үчүн",
+  "forDarkTheme": "Темнә тема үчүн",
+  "close": "Жабық",
+  "adaptiveTheme": "Адаптив тема",
+  "darkTheme": "Кара тема",
+  "displayAlways": "Экран үчүн демей"
 }
