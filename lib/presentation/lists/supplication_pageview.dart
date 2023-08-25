@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:supplications_from_quran/application/state/main_app_state.dart';
@@ -15,8 +16,9 @@ class SupplicationPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final MainAppState mainAppState = Provider.of<MainAppState>(context);
+    final AppLocalizations locale = AppLocalizations.of(context)!;
     return FutureBuilder<List<SupplicationModel>>(
-      future: mainAppState.getSupplicationInteractor.getAllSupplications(),
+      future: mainAppState.getSupplicationInteractor.getAllSupplications(tableName: locale.tableName),
       builder: (BuildContext context, AsyncSnapshot<List<SupplicationModel>> snapshot) {
         if (snapshot.hasData) {
           return Column(

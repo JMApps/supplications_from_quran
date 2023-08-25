@@ -27,7 +27,7 @@ class DatabaseHelper {
         ? await getExternalStorageDirectory()
         : await getApplicationSupportDirectory();
 
-    String dbName = 'supplications_ru.db';
+    String dbName = 'supplications.db';
 
     String path = join(documentDirectory!.path, dbName);
     var exists = await databaseExists(path);
@@ -46,24 +46,24 @@ class DatabaseHelper {
     return await openDatabase(path);
   }
 
-  Future<List<SupplicationModel>> getAllSupplications() async {
+  Future<List<SupplicationModel>> getAllSupplications({required String tableName}) async {
     final Database dbClient = await db;
-    var res = await dbClient.query('Table_of_supplications');
+    var res = await dbClient.query(tableName);
     List<SupplicationModel>? allSupplications = res.isNotEmpty ? res.map((c) => SupplicationModel.fromMap(c)).toList() : null;
     return allSupplications!;
   }
 
-  Future<List<SupplicationModel>> getFavoriteSupplications() async {
+  Future<List<SupplicationModel>> getFavoriteSupplications({required String tableName}) async {
     final Database dbClient = await db;
-    var res = await dbClient.query('Table_of_supplications', where: 'favorite_state == 1');
+    var res = await dbClient.query(tableName, where: 'favorite_state == 1');
     List<SupplicationModel>? allSupplications = res.isNotEmpty ? res.map((c) => SupplicationModel.fromMap(c)).toList() : null;
     return allSupplications!;
   }
 
-  Future<void> addRemoveFavorite({required int supplicationId}) async {
+  Future<void> addRemoveFavorite({required String tableName, required int supplicationId}) async {
     final Database dbClient = await db;
     var currentData = await dbClient.query(
-      'Table_of_supplications',
+      tableName,
       where: 'id = ?',
       whereArgs: [supplicationId],
     );
@@ -72,7 +72,7 @@ class DatabaseHelper {
       int currentFavoriteState = currentData.first['favorite_state'] as int;
       int newFavoriteState = (currentFavoriteState == 0) ? 1 : 0;
       await dbClient.update(
-        'Table_of_supplications',
+        tableName,
         {
           'favorite_state': newFavoriteState,
         },

@@ -83,7 +83,7 @@ class ItemSheetBottom extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              mainAppState.addRemoveFavorite(supplicationId: model.id);
+              mainAppState.addRemoveFavorite(tableName: locale.tableName, supplicationId: model.id);
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: appColors.titleColor,

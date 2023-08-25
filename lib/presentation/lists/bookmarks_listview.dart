@@ -14,7 +14,7 @@ class BookmarksListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations locale = AppLocalizations.of(context)!;
     return FutureBuilder<List<SupplicationModel>>(
-      future: context.watch<MainAppState>().getSupplicationInteractor.getFavoriteSupplications(),
+      future: context.watch<MainAppState>().getSupplicationInteractor.getFavoriteSupplications(tableName: locale.tableName),
       builder: (BuildContext context,
           AsyncSnapshot<List<SupplicationModel>> snapshot) {
         if (snapshot.hasData) {

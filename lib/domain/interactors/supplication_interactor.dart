@@ -4,15 +4,15 @@ import 'package:supplications_from_quran/domain/repositories/supplications_peros
 class SupplicationInteractor {
   final SupplicationRepository _supplicationRepository = SupplicationRepository();
 
-  Future<List<SupplicationModel>> getAllSupplications() async {
-    return await _supplicationRepository.fetchSupplications();
+  Future<List<SupplicationModel>> getAllSupplications({required String tableName}) async {
+    return await _supplicationRepository.fetchSupplications(tableName: tableName);
   }
 
-  Future<List<SupplicationModel>> getFavoriteSupplications() async {
-    return await _supplicationRepository.fetchFavoriteSupplications();
+  Future<List<SupplicationModel>> getFavoriteSupplications({required String tableName}) async {
+    return await _supplicationRepository.fetchFavoriteSupplications(tableName: tableName);
   }
 
-  Future<void> addRemoveFavorite({required int supplicationId}) async {
-    return await _supplicationRepository.addRemoveFavorite(supplicationId: supplicationId);
+  Future<void> addRemoveFavorite({required String tableName, required int supplicationId}) async {
+    return await _supplicationRepository.addRemoveFavorite(tableName: tableName, supplicationId: supplicationId);
   }
 }

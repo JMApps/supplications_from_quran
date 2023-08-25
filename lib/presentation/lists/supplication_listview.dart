@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:supplications_from_quran/application/state/main_app_state.dart';
@@ -13,8 +14,9 @@ class SupplicationsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MainAppState mainAppState = Provider.of<MainAppState>(context);
+    final AppLocalizations locale = AppLocalizations.of(context)!;
     return FutureBuilder<List<SupplicationModel>>(
-      future: mainAppState.getSupplicationInteractor.getAllSupplications(),
+      future: mainAppState.getSupplicationInteractor.getAllSupplications(tableName: locale.tableName),
       builder: (BuildContext context, AsyncSnapshot<List<SupplicationModel>> snapshot) {
         if (snapshot.hasData) {
           return ScrollablePositionedList.builder(

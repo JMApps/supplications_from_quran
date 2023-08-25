@@ -1,5 +1,6 @@
 {
   "@@locale": "ru",
+  "tableName": "Table_of_supplications_ru",
   "appName": "Мольбы из Корана",
   "cards": "Карточки",
   "pages": "Страницы",

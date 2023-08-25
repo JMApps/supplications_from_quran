@@ -7,10 +7,13 @@ import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/application/constraints/app_constraints.dart';
 import 'package:supplications_from_quran/application/state/content_settings_state.dart';
 import 'package:supplications_from_quran/application/state/main_app_state.dart';
+import 'package:supplications_from_quran/data/services/database_helper.dart';
 import 'package:supplications_from_quran/presentation/pages/root_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  DatabaseHelper databaseHelper = DatabaseHelper();
+  await databaseHelper.initializeDatabase();
   if (Platform.isAndroid) {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(

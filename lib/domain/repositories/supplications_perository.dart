@@ -6,15 +6,15 @@ class SupplicationRepository {
 
   SupplicationRepository() : _databaseHelper = DatabaseHelper();
 
-  Future<List<SupplicationModel>> fetchSupplications() async {
-    return await _databaseHelper.getAllSupplications();
+  Future<List<SupplicationModel>> fetchSupplications({required String tableName}) async {
+    return await _databaseHelper.getAllSupplications(tableName: tableName);
   }
 
-  Future<List<SupplicationModel>> fetchFavoriteSupplications() async {
-    return await _databaseHelper.getFavoriteSupplications();
+  Future<List<SupplicationModel>> fetchFavoriteSupplications({required String tableName}) async {
+    return await _databaseHelper.getFavoriteSupplications(tableName: tableName);
   }
 
-  Future<void> addRemoveFavorite({required int supplicationId}) async {
-    return await _databaseHelper.addRemoveFavorite(supplicationId: supplicationId);
+  Future<void> addRemoveFavorite({required String tableName, required int supplicationId}) async {
+    return await _databaseHelper.addRemoveFavorite(tableName: tableName, supplicationId: supplicationId);
   }
 }

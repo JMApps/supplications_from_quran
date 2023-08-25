@@ -19,8 +19,8 @@ class MainAppState extends ChangeNotifier {
 
   SupplicationInteractor get getSupplicationInteractor => _interactor;
 
-  Future<void> addRemoveFavorite({required int supplicationId}) async {
-    await _interactor.addRemoveFavorite(supplicationId: supplicationId);
+  Future<void> addRemoveFavorite({required String tableName, required int supplicationId}) async {
+    await _interactor.addRemoveFavorite(tableName: tableName, supplicationId: supplicationId);
     notifyListeners();
   }
 
