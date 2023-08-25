@@ -1,3 +1,27 @@
 {
-  "appName": "Supplications from the Quran"
+  "@@locale": "en",
+  "appName": "SFQ",
+  "cards": "Cards",
+  "pages": "Pages",
+  "bookmarks": "Bookmarks",
+  "bookmarksIsEmpty": "No bookmarks",
+  "settings": "Settings",
+  "copied": "Copied",
+  "added": "Added",
+  "removed": "Removed",
+  "randomAyah": "Random ayah",
+  "arabicTextFont": "Arabic Font",
+  "textFont": "Translation Font",
+  "arabicAlignText": "Ayah Alignment",
+  "alignText": "Translation text alignment",
+  "arabicTextSize": "Ayah text size",
+  "textSize": "Translation text size",
+  "arabicTextColor": "Ayah text color",
+  "textColor": "Translation text color",
+  "forLightTheme": "For light theme",
+  "forDarkTheme": "For dark theme",
+  "close": "Close",
+  "adaptiveTheme": "Adaptive theme",
+  "darkTheme": "Dark theme",
+  "displayAlways": "Display always on"
 }
