@@ -69,6 +69,18 @@ class SupplicationPageViewItem extends StatelessWidget {
                 ),
                 textAlign: AppStyles.textAlign[cs.getTextAlignIndex],
               ),
+              const SizedBox(height: 16),
+              CircleAvatar(
+                radius: 20,
+                backgroundColor: appTheme.colorScheme.titleColor.withOpacity(0.75),
+                child: Text(
+                  model.id.toString(),
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

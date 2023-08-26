@@ -40,6 +40,7 @@ class SupplicationListViewItem extends StatelessWidget {
                 fontSize: cs.getArabicTextSize,
                 fontFamily: AppStyles.arabicTextFont[cs.getArabicFontIndex],
                 color: appTheme.brightness == Brightness.light ? cs.getArabicLightTextColor : cs.getArabicDarkTextColor,
+                height: 1.5,
               ),
               textDirection: TextDirection.rtl,
               textAlign: AppStyles.arabicTextAlign[cs.getTextArabicAlignIndex],
@@ -63,6 +64,18 @@ class SupplicationListViewItem extends StatelessWidget {
                 color: appTheme.colorScheme.titleColor,
               ),
               textAlign: AppStyles.textAlign[cs.getTextAlignIndex],
+            ),
+            const SizedBox(height: 16),
+            CircleAvatar(
+              radius: 20,
+              backgroundColor: appTheme.colorScheme.titleColor.withOpacity(0.75),
+              child: Text(
+                model.id.toString(),
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
         ),

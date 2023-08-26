@@ -73,4 +73,8 @@ extension CustomColors on ColorScheme {
   Color get titleColor => brightness == Brightness.light
       ? const Color(0xFF512DA8)
       : const Color(0xFF1B5E20);
+
+  Color get mainDefault => brightness == Brightness.light
+      ? const Color(0xB2000000)
+      : const Color(0xFFBDBDBD);
 }

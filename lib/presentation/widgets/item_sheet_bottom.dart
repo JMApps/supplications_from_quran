@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:supplications_from_quran/application/state/app_player_state.dart';
 import 'package:supplications_from_quran/application/state/main_app_state.dart';
 import 'package:supplications_from_quran/application/themes/app_themes.dart';
 import 'package:supplications_from_quran/domain/models/supplication_model.dart';
@@ -33,28 +34,45 @@ class ItemSheetBottom extends StatelessWidget {
       ),
       child: Wrap(
         direction: Axis.horizontal,
-        alignment: WrapAlignment.center,
+        alignment: WrapAlignment.spaceEvenly,
         crossAxisAlignment: WrapCrossAlignment.center,
-        spacing: 4,
         children: [
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: appColors.titleColor.withOpacity(0.75),
-            child: Text(
-              model.id.toString(),
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-              ),
-            ),
+          Consumer<AppPlayerState>(
+            builder: (context, player, _) {
+              return IconButton(
+                onPressed: () {
+                  player.playTrack(
+                    nameAudio: model.nameAudio,
+                    trackId: model.id,
+                  );
+                },
+                icon: Icon(
+                  player.getCurrentTrackItem == model.id &&
+                          player.getPlayingState
+                      ? CupertinoIcons.stop_circle
+                      : CupertinoIcons.play,
+                  size: 25,
+                ),
+              );
+            },
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(CupertinoIcons.play),
+          Consumer<AppPlayerState>(
+            builder: (context, player, _) {
+              return IconButton(
+                onPressed: () {
+                  player.changeRepeatState(trackId: model.id);
+                },
+                icon: Icon(CupertinoIcons.arrow_2_circlepath,
+                  color: player.getCurrentTrackItem == model.id && player.getRepeatState ? appColors.titleColor : appColors.mainDefault,
+                  size: 25,
+                ),
+              );
+            },
           ),
           IconButton(
             onPressed: () {
-              mainAppState.copyContent = '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}';
+              mainAppState.copyContent =
+                  '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}';
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: appColors.titleColor,
@@ -73,7 +91,8 @@ class ItemSheetBottom extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              mainAppState.shareContent = '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}';
+              mainAppState.shareContent =
+                  '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}';
             },
             icon: const Icon(CupertinoIcons.share),
           ),
@@ -85,7 +104,8 @@ class ItemSheetBottom extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              mainAppState.addRemoveFavorite(tableName: locale.tableName, supplicationId: model.id);
+              mainAppState.addRemoveFavorite(
+                  tableName: locale.tableName, supplicationId: model.id);
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: appColors.titleColor,

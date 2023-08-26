@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/application/constraints/app_constraints.dart';
+import 'package:supplications_from_quran/application/state/app_player_state.dart';
 import 'package:supplications_from_quran/application/state/content_settings_state.dart';
 import 'package:supplications_from_quran/application/state/main_app_state.dart';
 import 'package:supplications_from_quran/data/services/database_helper.dart';
@@ -32,6 +33,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => ContentSettingsState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AppPlayerState(),
         ),
       ],
       child: const RootPage(),
