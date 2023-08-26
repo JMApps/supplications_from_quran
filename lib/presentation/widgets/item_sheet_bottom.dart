@@ -78,7 +78,9 @@ class ItemSheetBottom extends StatelessWidget {
             icon: const Icon(CupertinoIcons.share),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              mainAppState.takeScreenshot(model);
+            },
             icon: const Icon(CupertinoIcons.photo_on_rectangle),
           ),
           IconButton(
