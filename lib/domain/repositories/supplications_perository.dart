@@ -13,8 +13,4 @@ class SupplicationRepository {
   Future<List<SupplicationModel>> fetchFavoriteSupplications({required String tableName, required List<int> favorites}) async {
     return await _databaseHelper.getFavoriteSupplications(tableName: tableName, favorites: favorites);
   }
-
-  Future<void> addRemoveFavorite({required String tableName, required int supplicationId}) async {
-    return await _databaseHelper.addRemoveFavorite(tableName: tableName, supplicationId: supplicationId);
-  }
 }

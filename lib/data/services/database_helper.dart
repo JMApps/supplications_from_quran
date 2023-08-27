@@ -27,10 +27,18 @@ class DatabaseHelper {
         ? await getExternalStorageDirectory()
         : await getApplicationSupportDirectory();
 
-    String dbName = 'supplications.db';
+    String dbName = 'supplications_2.db';
 
     String path = join(documentDirectory!.path, dbName);
     var exists = await databaseExists(path);
+
+    String toDeleteDB = '${documentDirectory.path}/supplications.db';
+
+    var delDB = await databaseExists(toDeleteDB);
+
+    if (delDB) {
+      await deleteDatabase(toDeleteDB);
+    }
 
     if (!exists) {
       try {
@@ -58,27 +66,5 @@ class DatabaseHelper {
     var res = await dbClient.query(tableName, where: 'id IN (${favorites.map((id) => '?').join(', ')})', whereArgs: favorites);
     List<SupplicationModel>? allSupplications = res.isNotEmpty ? res.map((c) => SupplicationModel.fromMap(c)).toList() : null;
     return allSupplications!;
-  }
-
-  Future<void> addRemoveFavorite({required String tableName, required int supplicationId}) async {
-    final Database dbClient = await db;
-    var currentData = await dbClient.query(
-      tableName,
-      where: 'id = ?',
-      whereArgs: [supplicationId],
-    );
-
-    if (currentData.isNotEmpty) {
-      int currentFavoriteState = currentData.first['favorite_state'] as int;
-      int newFavoriteState = (currentFavoriteState == 0) ? 1 : 0;
-      await dbClient.update(
-        tableName,
-        {
-          'favorite_state': newFavoriteState,
-        },
-        where: 'id = ?',
-        whereArgs: [supplicationId],
-      );
-    }
   }
 }

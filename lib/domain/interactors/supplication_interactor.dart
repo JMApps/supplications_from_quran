@@ -11,8 +11,4 @@ class SupplicationInteractor {
   Future<List<SupplicationModel>> getFavoriteSupplications({required String tableName, required List<int> favorites}) async {
     return await _supplicationRepository.fetchFavoriteSupplications(tableName: tableName, favorites:  favorites);
   }
-
-  Future<void> addRemoveFavorite({required String tableName, required int supplicationId}) async {
-    return await _supplicationRepository.addRemoveFavorite(tableName: tableName, supplicationId: supplicationId);
-  }
 }

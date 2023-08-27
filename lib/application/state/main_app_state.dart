@@ -54,13 +54,6 @@ class MainAppState extends ChangeNotifier {
     return exist;
   }
 
-  Future<void> addRemoveFavorite(
-      {required String tableName, required int supplicationId}) async {
-    await _interactor.addRemoveFavorite(
-        tableName: tableName, supplicationId: supplicationId);
-    notifyListeners();
-  }
-
   setDefaultListItem() {
     final Random random = Random();
     _scrollController.scrollTo(
