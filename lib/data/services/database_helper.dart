@@ -53,9 +53,9 @@ class DatabaseHelper {
     return allSupplications!;
   }
 
-  Future<List<SupplicationModel>> getFavoriteSupplications({required String tableName}) async {
+  Future<List<SupplicationModel>> getFavoriteSupplications({required String tableName, required List<int> favorites}) async {
     final Database dbClient = await db;
-    var res = await dbClient.query(tableName, where: 'favorite_state == 1');
+    var res = await dbClient.query(tableName, where: 'id IN (${favorites.map((id) => '?').join(', ')})', whereArgs: favorites);
     List<SupplicationModel>? allSupplications = res.isNotEmpty ? res.map((c) => SupplicationModel.fromMap(c)).toList() : null;
     return allSupplications!;
   }

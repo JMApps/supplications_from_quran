@@ -11,9 +11,6 @@ import 'package:supplications_from_quran/data/services/database_helper.dart';
 import 'package:supplications_from_quran/presentation/pages/root_page.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  DatabaseHelper databaseHelper = DatabaseHelper();
-  await databaseHelper.initializeDatabase();
   if (Platform.isAndroid) {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
@@ -22,8 +19,12 @@ void main() async {
       ),
     );
   }
+  WidgetsFlutterBinding.ensureInitialized();
+  DatabaseHelper databaseHelper = DatabaseHelper();
+  await databaseHelper.initializeDatabase();
   await Hive.initFlutter();
   await Hive.openBox(AppConstraints.keyMainAppSettings);
+  await Hive.openBox(AppConstraints.keyFavoriteSupplicationIds);
   runApp(
     MultiProvider(
       providers: [

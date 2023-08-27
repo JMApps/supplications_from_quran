@@ -14,6 +14,7 @@ class BookmarksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations locale = AppLocalizations.of(context)!;
+    final MainAppState mainAppState = Provider.of<MainAppState>(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -21,7 +22,10 @@ class BookmarksListView extends StatelessWidget {
         ),
       ],
       child: FutureBuilder<List<SupplicationModel>>(
-        future: context.watch<MainAppState>().getSupplicationInteractor.getFavoriteSupplications(tableName: locale.tableName),
+        future: context.watch<MainAppState>().getSupplicationInteractor.getFavoriteSupplications(
+              tableName: locale.tableName,
+              favorites: mainAppState.getFavoriteSupplications,
+            ),
         builder: (BuildContext context,
             AsyncSnapshot<List<SupplicationModel>> snapshot) {
           if (snapshot.hasData) {

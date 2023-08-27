@@ -17,6 +17,7 @@ class ItemSheetBottom extends StatelessWidget {
     final MainAppState mainAppState = Provider.of<MainAppState>(context);
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations locale = AppLocalizations.of(context)!;
+    final bool isBookmark = mainAppState.supplicationIsFavorite(model.id);
     return Card(
       margin: const EdgeInsets.only(
         top: 8,
@@ -62,8 +63,12 @@ class ItemSheetBottom extends StatelessWidget {
                 onPressed: () {
                   player.changeRepeatState(trackId: model.id);
                 },
-                icon: Icon(CupertinoIcons.arrow_2_circlepath,
-                  color: player.getCurrentTrackItem == model.id && player.getRepeatState ? appColors.titleColor : appColors.mainDefault,
+                icon: Icon(
+                  CupertinoIcons.arrow_2_circlepath,
+                  color: player.getCurrentTrackItem == model.id &&
+                          player.getRepeatState
+                      ? appColors.titleColor
+                      : appColors.mainDefault,
                   size: 25,
                 ),
               );
@@ -104,14 +109,13 @@ class ItemSheetBottom extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              mainAppState.addRemoveFavorite(
-                  tableName: locale.tableName, supplicationId: model.id);
+              mainAppState.toggleFavorite(model.id);
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: appColors.titleColor,
                   duration: const Duration(milliseconds: 750),
                   content: Text(
-                    model.favoriteState == 0 ? locale.added : locale.removed,
+                    isBookmark ? locale.removed : locale.added,
                     style: const TextStyle(
                       fontSize: 18,
                       color: Colors.white,
@@ -121,7 +125,7 @@ class ItemSheetBottom extends StatelessWidget {
               );
             },
             icon: Icon(
-              model.favoriteState == 1
+              isBookmark
                   ? CupertinoIcons.bookmark_solid
                   : CupertinoIcons.bookmark,
               color: appColors.titleColor,
