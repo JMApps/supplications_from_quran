@@ -21,8 +21,9 @@ class AppStyles {
   );
 
   static const RoundedRectangleBorder mainAppBarShape = RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(
-      Radius.elliptical(25, 25),
+    borderRadius: BorderRadius.only(
+      bottomRight: Radius.elliptical(25, 25),
+      bottomLeft: Radius.elliptical(25, 25),
     ),
   );
 
