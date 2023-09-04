@@ -76,8 +76,7 @@ class ItemSheetBottom extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              mainAppState.copyContent =
-                  '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}';
+              mainAppState.copyContent = '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}';
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   backgroundColor: appColors.titleColor,
@@ -96,8 +95,7 @@ class ItemSheetBottom extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              mainAppState.shareContent =
-                  '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}';
+              mainAppState.shareContent = '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}';
             },
             icon: const Icon(CupertinoIcons.share),
           ),

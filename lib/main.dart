@@ -24,7 +24,7 @@ void main() async {
   await databaseHelper.initializeDatabase();
   await Hive.initFlutter();
   await Hive.openBox(AppConstraints.keyMainAppSettings);
-  await Hive.openBox(AppConstraints.keyFavoriteSupplicationIds);
+  await Hive.openBox(AppConstraints.keyFavoriteSupplications);
   runApp(
     MultiProvider(
       providers: [
