@@ -4,7 +4,6 @@ class SupplicationModel {
   final String ayahTranslation;
   final String ayahSource;
   final String nameAudio;
-  final int favoriteState;
 
   SupplicationModel({
     required this.id,
@@ -12,7 +11,6 @@ class SupplicationModel {
     required this.ayahTranslation,
     required this.ayahSource,
     required this.nameAudio,
-    required this.favoriteState,
   });
 
   factory SupplicationModel.fromMap(Map<String, dynamic> map) {
@@ -22,7 +20,6 @@ class SupplicationModel {
       ayahTranslation: map['ayah_translation'] as String,
       ayahSource: map['ayah_source'] as String,
       nameAudio: map['name_audio'] as String,
-      favoriteState: map['favorite_state'] as int,
     );
   }
 }
