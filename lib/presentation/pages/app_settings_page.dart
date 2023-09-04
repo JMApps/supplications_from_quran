@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:supplications_from_quran/application/state/content_settings_state.dart';
 import 'package:supplications_from_quran/application/styles/app_styles.dart';
 import 'package:supplications_from_quran/application/themes/app_themes.dart';
@@ -13,7 +13,7 @@ class AppSettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextTheme headLineStyle = Theme.of(context).textTheme;
-    final ColorScheme appColors = Theme.of(context).colorScheme;
+    final ThemeData appTheme = Theme.of(context);
     final AppLocalizations locale = AppLocalizations.of(context)!;
     return SingleChildScrollView(
       padding: AppStyles.mainMarding,
@@ -28,7 +28,7 @@ class AppSettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CupertinoSlidingSegmentedControl(
-                thumbColor: appColors.titleColor.withOpacity(0.25),
+                thumbColor: appTheme.colorScheme.titleColor.withOpacity(0.25),
                 padding: const EdgeInsets.all(4),
                 children: <int, Widget>{
                   0: Text(
@@ -56,7 +56,7 @@ class AppSettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CupertinoSlidingSegmentedControl(
-                thumbColor: appColors.titleColor.withOpacity(0.25),
+                thumbColor: appTheme.colorScheme.titleColor.withOpacity(0.25),
                 padding: const EdgeInsets.all(4),
                 children: <int, Widget>{
                   0: Text(
@@ -84,7 +84,7 @@ class AppSettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CupertinoSlidingSegmentedControl(
-                thumbColor: appColors.titleColor.withOpacity(0.25),
+                thumbColor: appTheme.colorScheme.titleColor.withOpacity(0.25),
                 padding: const EdgeInsets.all(4),
                 children: const <int, Widget>{
                   0: Icon(CupertinoIcons.text_alignleft),
@@ -104,7 +104,7 @@ class AppSettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CupertinoSlidingSegmentedControl(
-                thumbColor: appColors.titleColor.withOpacity(0.25),
+                thumbColor: appTheme.colorScheme.titleColor.withOpacity(0.25),
                 padding: const EdgeInsets.all(4),
                 children: const <int, Widget>{
                   0: Icon(CupertinoIcons.text_alignleft),
@@ -161,13 +161,13 @@ class AppSettingsPage extends StatelessWidget {
                   ),
                   leading: Icon(
                     Icons.palette_outlined,
-                    color: settingsState.getDarkTheme
+                    color: appTheme.brightness == Brightness.dark
                         ? settingsState.getArabicDarkTextColor
                         : settingsState.getArabicLightTextColor,
                   ),
                   trailing: Card(
                     shape: AppStyles.mainShape,
-                    color: appColors.titleColor.withOpacity(0.50),
+                    color: appTheme.colorScheme.titleColor.withOpacity(0.50),
                     child: Padding(
                       padding: const EdgeInsets.all(3),
                       child: Row(
@@ -188,10 +188,11 @@ class AppSettingsPage extends StatelessWidget {
                                     child: MaterialColorPicker(
                                       onlyShadeSelection: true,
                                       onColorChange: (Color color) {
-                                        settingsState.changeArabicLightColor = color;
+                                        settingsState.changeArabicLightColor =
+                                            color;
                                       },
                                       selectedColor:
-                                      settingsState.getArabicLightTextColor,
+                                          settingsState.getArabicLightTextColor,
                                     ),
                                   ),
                                   actions: [
@@ -211,7 +212,7 @@ class AppSettingsPage extends StatelessWidget {
                             child: CircleAvatar(
                               radius: 15,
                               backgroundColor:
-                              settingsState.getArabicLightTextColor,
+                                  settingsState.getArabicLightTextColor,
                             ),
                           ),
                           const SizedBox(width: 4),
@@ -230,10 +231,11 @@ class AppSettingsPage extends StatelessWidget {
                                     child: MaterialColorPicker(
                                       onlyShadeSelection: true,
                                       onColorChange: (Color color) {
-                                        settingsState.changeArabicDarkColor = color;
+                                        settingsState.changeArabicDarkColor =
+                                            color;
                                       },
                                       selectedColor:
-                                      settingsState.getArabicDarkTextColor,
+                                          settingsState.getArabicDarkTextColor,
                                     ),
                                   ),
                                   actions: [
@@ -252,7 +254,8 @@ class AppSettingsPage extends StatelessWidget {
                             },
                             child: CircleAvatar(
                               radius: 15,
-                              backgroundColor: settingsState.getArabicDarkTextColor,
+                              backgroundColor:
+                                  settingsState.getArabicDarkTextColor,
                             ),
                           ),
                         ],
@@ -277,13 +280,13 @@ class AppSettingsPage extends StatelessWidget {
                   ),
                   leading: Icon(
                     Icons.palette_outlined,
-                    color: settingsState.getDarkTheme
+                    color: appTheme.brightness == Brightness.dark
                         ? settingsState.getDarkTextColor
                         : settingsState.getLightTextColor,
                   ),
                   trailing: Card(
                     shape: AppStyles.mainShape,
-                    color: appColors.titleColor.withOpacity(0.50),
+                    color: appTheme.colorScheme.titleColor.withOpacity(0.50),
                     child: Padding(
                       padding: const EdgeInsets.all(4),
                       child: Row(
@@ -307,7 +310,7 @@ class AppSettingsPage extends StatelessWidget {
                                         settingsState.changeLightColor = color;
                                       },
                                       selectedColor:
-                                      settingsState.getLightTextColor,
+                                          settingsState.getLightTextColor,
                                     ),
                                   ),
                                   actions: [
@@ -326,8 +329,7 @@ class AppSettingsPage extends StatelessWidget {
                             },
                             child: CircleAvatar(
                               radius: 15,
-                              backgroundColor:
-                              settingsState.getLightTextColor,
+                              backgroundColor: settingsState.getLightTextColor,
                             ),
                           ),
                           const SizedBox(width: 4),
@@ -346,11 +348,10 @@ class AppSettingsPage extends StatelessWidget {
                                     child: MaterialColorPicker(
                                       onlyShadeSelection: true,
                                       onColorChange: (Color color) {
-                                        settingsState.changeDarkColor =
-                                            color;
+                                        settingsState.changeDarkColor = color;
                                       },
                                       selectedColor:
-                                      settingsState.getDarkTextColor,
+                                          settingsState.getDarkTextColor,
                                     ),
                                   ),
                                   actions: [
@@ -391,9 +392,11 @@ class AppSettingsPage extends StatelessWidget {
               ),
               SwitchListTile(
                 value: settingsState.getDarkTheme,
-                onChanged: settingsState.getAdaptiveTheme ? null : (bool? onChanged) {
-                  settingsState.changeDarkTheme = onChanged!;
-                },
+                onChanged: settingsState.getAdaptiveTheme
+                    ? null
+                    : (bool? onChanged) {
+                        settingsState.changeDarkTheme = onChanged!;
+                      },
                 contentPadding: AppStyles.mainMardingMiniHorizontalMini,
                 title: Text(
                   locale.darkTheme,

@@ -6,26 +6,23 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleDisplayName</key>
-	<string>Мольбы</string>
-	<key>CFBundleLocalizations</key>
-  <array>
-  	<string>ru</string>
-  	<string>en</string>
-  	<string>az</string>
-  	<string>tr</string>
-  	<string>uz</string>
-  	<string>kk</string>
-  	<string>id</string>
-  </array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>supplications_from_quran</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>ru</string>
+		<string>en</string>
+		<string>az</string>
+		<string>tr</string>
+		<string>uz</string>
+		<string>kk</string>
+		<string>id</string>
+		<string>ky</string>
+	</array>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

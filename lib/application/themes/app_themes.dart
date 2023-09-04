@@ -13,6 +13,7 @@ class AppThemes {
       )
     ),
     appBarTheme: const AppBarTheme(
+      scrolledUnderElevation: 0,
       centerTitle: true,
       backgroundColor: Color(0xFF512DA8),
       elevation: 0,
@@ -46,6 +47,7 @@ class AppThemes {
         )
     ),
     appBarTheme: const AppBarTheme(
+      scrolledUnderElevation: 0,
       centerTitle: true,
       backgroundColor: Color(0xFF1B5E20),
       elevation: 0,

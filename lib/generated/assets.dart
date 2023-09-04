@@ -56,7 +56,7 @@ class Assets {
   static const String audiosAyah7 = 'assets/audios/ayah_7.mp3';
   static const String audiosAyah8 = 'assets/audios/ayah_8.mp3';
   static const String audiosAyah9 = 'assets/audios/ayah_9.mp3';
-  static const String databasesSupplications = 'assets/databases/supplications.db';
+  static const String databasesSupplications2 = 'assets/databases/supplications_2.db';
   static const String fontsGilroyMedium = 'assets/fonts/gilroy_medium.ttf';
   static const String fontsHafs = 'assets/fonts/hafs.ttf';
   static const String fontsMontserratMedium = 'assets/fonts/montserrat_medium.ttf';
