@@ -14,17 +14,17 @@ if (localPropertiesFile.exists()) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-  flutterVersionCode = '12'
+  flutterVersionCode = '13'
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
-  flutterVersionName = '2.2.0'
+  flutterVersionName = '2.2.1'
 }
 
 android {
   namespace "com.example.supplications_from_quran"
-  compileSdk 33
+  compileSdk 34
   ndkVersion flutter.ndkVersion
 
   compileOptions {
@@ -42,9 +42,9 @@ android {
 
   defaultConfig {
     applicationId "jmapps.supplicationsfromquran"
-    compileSdk 33
+    compileSdk 34
     minSdkVersion 21
-    targetSdkVersion 33
+    targetSdk 33
     versionCode flutterVersionCode.toInteger()
     versionName flutterVersionName
   }

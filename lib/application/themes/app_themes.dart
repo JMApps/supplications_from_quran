@@ -40,6 +40,7 @@ class AppThemes {
     appBarTheme: const AppBarTheme(
       centerTitle: true,
       elevation: 0,
+      shape: AppStyles.mainAppBarShape,
     ),
     cardTheme: const CardTheme(
       shape: AppStyles.mainShape,
