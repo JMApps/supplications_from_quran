@@ -5,7 +5,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:supplications_from_quran/application/state/app_player_state.dart';
 import 'package:supplications_from_quran/application/state/main_app_state.dart';
 import 'package:supplications_from_quran/application/styles/app_styles.dart';
-import 'package:supplications_from_quran/application/themes/app_themes.dart';
 import 'package:supplications_from_quran/domain/models/supplication_model.dart';
 import 'package:supplications_from_quran/presentation/items/supplication_pageview_item.dart';
 import 'package:supplications_from_quran/presentation/widgets/item_sheet_bottom.dart';
@@ -64,7 +63,7 @@ class SupplicationPageView extends StatelessWidget {
                     dotWidth: 8,
                     dotHeight: 8,
                     dotColor: Colors.grey,
-                    activeDotColor: appColors.titleColor,
+                    activeDotColor: appColors.secondary,
                   ),
                 ),
                 const SizedBox(height: 8),

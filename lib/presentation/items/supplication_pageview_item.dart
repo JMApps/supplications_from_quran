@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/application/state/content_settings_state.dart';
 import 'package:supplications_from_quran/application/styles/app_styles.dart';
-import 'package:supplications_from_quran/application/themes/app_themes.dart';
 import 'package:supplications_from_quran/domain/models/supplication_model.dart';
 
 class SupplicationPageViewItem extends StatelessWidget {
@@ -65,14 +64,14 @@ class SupplicationPageViewItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14,
                   fontFamily: AppStyles.textFont[cs.getFontIndex],
-                  color: appTheme.colorScheme.titleColor,
+                  color: appTheme.colorScheme.secondary,
                 ),
                 textAlign: AppStyles.textAlign[cs.getTextAlignIndex],
               ),
               const SizedBox(height: 16),
               CircleAvatar(
                 radius: 20,
-                backgroundColor: appTheme.colorScheme.titleColor.withOpacity(0.75),
+                backgroundColor: appTheme.colorScheme.secondary.withOpacity(0.75),
                 child: Text(
                   model.id.toString(),
                   style: const TextStyle(

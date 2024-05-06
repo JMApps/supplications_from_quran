@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:supplications_from_quran/application/state/main_app_state.dart';
-import 'package:supplications_from_quran/application/themes/app_themes.dart';
 import 'package:supplications_from_quran/presentation/lists/bookmarks_listview.dart';
 import 'package:supplications_from_quran/presentation/lists/supplication_listview.dart';
 import 'package:supplications_from_quran/presentation/lists/supplication_pageview.dart';
@@ -42,7 +41,6 @@ class _MainPageState extends State<MainPage> {
                   tooltip: locale.randomAyah,
                   icon: const Icon(
                     CupertinoIcons.arrow_2_squarepath,
-                    color: Colors.white,
                   ),
                 )
               : const SizedBox(),
@@ -58,10 +56,9 @@ class _MainPageState extends State<MainPage> {
                 mainAppState.setDefaultListItem();
               },
               tooltip: locale.randomAyah,
-              backgroundColor: appColors.titleColor,
+              backgroundColor: appColors.inversePrimary,
               child: const Icon(
                 CupertinoIcons.arrow_2_squarepath,
-                color: Colors.white,
               ),
             )
           : const SizedBox(),
@@ -92,7 +89,7 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
         ],
-        selectedItemColor: appColors.titleColor,
+        selectedItemColor: appColors.primary,
         selectedColorOpacity: 0.25,
         currentIndex: mainAppState.getCurrentIndex,
         onTap: (int index) => mainAppState.setIndex = index,

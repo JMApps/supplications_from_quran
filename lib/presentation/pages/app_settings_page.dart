@@ -5,7 +5,6 @@ import 'package:flutter_material_color_picker/flutter_material_color_picker.dart
 import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/application/state/content_settings_state.dart';
 import 'package:supplications_from_quran/application/styles/app_styles.dart';
-import 'package:supplications_from_quran/application/themes/app_themes.dart';
 
 class AppSettingsPage extends StatelessWidget {
   const AppSettingsPage({super.key});
@@ -28,7 +27,7 @@ class AppSettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CupertinoSlidingSegmentedControl(
-                thumbColor: appTheme.colorScheme.titleColor.withOpacity(0.25),
+                thumbColor: appTheme.colorScheme.secondary.withOpacity(0.25),
                 padding: const EdgeInsets.all(4),
                 children: <int, Widget>{
                   0: Text(
@@ -56,7 +55,7 @@ class AppSettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CupertinoSlidingSegmentedControl(
-                thumbColor: appTheme.colorScheme.titleColor.withOpacity(0.25),
+                thumbColor: appTheme.colorScheme.secondary.withOpacity(0.25),
                 padding: const EdgeInsets.all(4),
                 children: <int, Widget>{
                   0: Text(
@@ -68,7 +67,7 @@ class AppSettingsPage extends StatelessWidget {
                     style: headLineStyle.headlineMedium,
                   ),
                   2: Text(
-                    'Nexa',
+                    'Raleway',
                     style: headLineStyle.headlineMedium,
                   ),
                 },
@@ -84,7 +83,7 @@ class AppSettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CupertinoSlidingSegmentedControl(
-                thumbColor: appTheme.colorScheme.titleColor.withOpacity(0.25),
+                thumbColor: appTheme.colorScheme.secondary.withOpacity(0.25),
                 padding: const EdgeInsets.all(4),
                 children: const <int, Widget>{
                   0: Icon(CupertinoIcons.text_alignleft),
@@ -104,7 +103,7 @@ class AppSettingsPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CupertinoSlidingSegmentedControl(
-                thumbColor: appTheme.colorScheme.titleColor.withOpacity(0.25),
+                thumbColor: appTheme.colorScheme.secondary.withOpacity(0.25),
                 padding: const EdgeInsets.all(4),
                 children: const <int, Widget>{
                   0: Icon(CupertinoIcons.text_alignleft),
@@ -167,7 +166,7 @@ class AppSettingsPage extends StatelessWidget {
                   ),
                   trailing: Card(
                     shape: AppStyles.mainShape,
-                    color: appTheme.colorScheme.titleColor.withOpacity(0.50),
+                    color: appTheme.colorScheme.secondary.withOpacity(0.50),
                     child: Padding(
                       padding: const EdgeInsets.all(3),
                       child: Row(
@@ -286,7 +285,7 @@ class AppSettingsPage extends StatelessWidget {
                   ),
                   trailing: Card(
                     shape: AppStyles.mainShape,
-                    color: appTheme.colorScheme.titleColor.withOpacity(0.50),
+                    color: appTheme.colorScheme.secondary.withOpacity(0.50),
                     child: Padding(
                       padding: const EdgeInsets.all(4),
                       child: Row(

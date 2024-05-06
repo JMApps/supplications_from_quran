@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:supplications_from_quran/application/state/app_player_state.dart';
 import 'package:supplications_from_quran/application/state/main_app_state.dart';
-import 'package:supplications_from_quran/application/themes/app_themes.dart';
 import 'package:supplications_from_quran/domain/models/supplication_model.dart';
 
 class ItemSheetBottom extends StatelessWidget {
@@ -67,8 +66,8 @@ class ItemSheetBottom extends StatelessWidget {
                   CupertinoIcons.arrow_2_circlepath,
                   color: player.getCurrentTrackItem == model.id &&
                           player.getRepeatState
-                      ? appColors.titleColor
-                      : appColors.mainDefault,
+                      ? appColors.secondary
+                      : appColors.inverseSurface,
                   size: 25,
                 ),
               );
@@ -79,7 +78,7 @@ class ItemSheetBottom extends StatelessWidget {
               mainAppState.copyContent = '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}';
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: appColors.titleColor,
+                  backgroundColor: appColors.secondary,
                   duration: const Duration(milliseconds: 750),
                   content: Text(
                     locale.copied,
@@ -110,7 +109,7 @@ class ItemSheetBottom extends StatelessWidget {
               mainAppState.toggleFavorite(model.id);
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: appColors.titleColor,
+                  backgroundColor: appColors.secondary,
                   duration: const Duration(milliseconds: 750),
                   content: Text(
                     isBookmark ? locale.removed : locale.added,
@@ -126,7 +125,7 @@ class ItemSheetBottom extends StatelessWidget {
               isBookmark
                   ? CupertinoIcons.bookmark_solid
                   : CupertinoIcons.bookmark,
-              color: appColors.titleColor,
+              color: appColors.secondary,
             ),
           ),
         ],

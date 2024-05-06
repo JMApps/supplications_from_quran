@@ -86,7 +86,7 @@ class ContentSettingsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  Color _arabicDarkTextColor = Colors.green.shade100;
+  Color _arabicDarkTextColor = Colors.deepPurple.shade50;
 
   Color get getArabicDarkTextColor => _arabicDarkTextColor;
 
@@ -146,8 +146,8 @@ class ContentSettingsState extends ChangeNotifier {
     _arabicTextSize = _contentSettingsBox.get(AppConstraints.keyArabicTextSize, defaultValue: 25.0);
     _textSize = _contentSettingsBox.get(AppConstraints.keyTextSize, defaultValue: 18.0);
     _arabicLightTextColor = Color(_contentSettingsBox.get(AppConstraints.keyArabicLightTextColor, defaultValue: Colors.deepPurple.shade900.value));
-    _lightTextColor = Color(_contentSettingsBox.get(AppConstraints.keyLightTextColor, defaultValue: Colors.grey.shade900.value));
-    _arabicDarkTextColor = Color(_contentSettingsBox.get(AppConstraints.keyArabicDarkTextColor, defaultValue: Colors.green.shade100.value));
+    _lightTextColor = Color(_contentSettingsBox.get(AppConstraints.keyLightTextColor, defaultValue: Colors.deepPurple.shade900.value));
+    _arabicDarkTextColor = Color(_contentSettingsBox.get(AppConstraints.keyArabicDarkTextColor, defaultValue: Colors.deepPurple.shade50.value));
     _darkTextColor = Color(_contentSettingsBox.get(AppConstraints.keyDarkTextColor, defaultValue: Colors.grey.shade100.value));
     _adaptiveTheme = _contentSettingsBox.get(AppConstraints.keyAdaptiveTheme, defaultValue: true);
     _darkTheme = _contentSettingsBox.get(AppConstraints.keyDarkTheme, defaultValue: false);
