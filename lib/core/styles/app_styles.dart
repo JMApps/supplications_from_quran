@@ -12,32 +12,18 @@ class AppStyles {
 
   static const RoundedRectangleBorder mainShape = RoundedRectangleBorder(
     borderRadius: BorderRadius.all(
-      Radius.circular(25),
+      Radius.circular(20),
     ),
   );
 
   static const BorderRadius mainBorder = BorderRadius.all(
-    Radius.circular(25),
+    Radius.circular(20),
   );
 
-  static const RoundedRectangleBorder mainAppBarShape = RoundedRectangleBorder(
-    borderRadius: BorderRadius.only(
-      bottomRight: Radius.elliptical(25, 25),
-      bottomLeft: Radius.elliptical(25, 25),
-    ),
-  );
-
-  static const List<TextAlign> arabicTextAlign = [
-    TextAlign.right,
+  static const List<TextAlign> textAligns = [
+    TextAlign.start,
     TextAlign.center,
-    TextAlign.left,
-    TextAlign.justify,
-  ];
-
-  static const List<TextAlign> textAlign = [
-    TextAlign.left,
-    TextAlign.center,
-    TextAlign.right,
+    TextAlign.end,
     TextAlign.justify,
   ];
 
@@ -50,6 +36,6 @@ class AppStyles {
   static const List<String> textFont = [
     'Montserrat',
     'Gilroy',
-    'Nexa',
+    'Raleway',
   ];
 }

@@ -11,7 +11,7 @@ import 'presentation/pages/root_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  DatabaseHelper databaseHelper = DatabaseHelper();
+  DatabaseService databaseHelper = DatabaseService();
   await databaseHelper.initializeDatabase();
 
   await Hive.initFlutter();

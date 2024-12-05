@@ -3,11 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:supplications_from_quran/application/state/main_app_state.dart';
-import 'package:supplications_from_quran/presentation/lists/bookmarks_listview.dart';
-import 'package:supplications_from_quran/presentation/lists/supplication_listview.dart';
-import 'package:supplications_from_quran/presentation/lists/supplication_pageview.dart';
-import 'package:supplications_from_quran/presentation/pages/app_settings_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
