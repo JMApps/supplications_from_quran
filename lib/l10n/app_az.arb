@@ -24,5 +24,8 @@
   "close": "Bağlamaq",
   "adaptiveTheme": "Adaptiv mövzu",
   "darkTheme": "Qaranlıq mövzu",
+  "share": "Paylaş",
+  "copy": "Köçür",
+  "sharePic": "Şəkli paylaş",
   "displayAlways": "Ekran həmişə açıq"
 }

@@ -24,5 +24,8 @@
   "close": "Close",
   "adaptiveTheme": "Adaptive theme",
   "darkTheme": "Dark theme",
+  "share": "Share",
+  "copy": "Copy",
+  "sharePic": "Share picture",
   "displayAlways": "Display always on"
 }

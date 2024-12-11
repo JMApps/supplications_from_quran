@@ -24,5 +24,8 @@
   "close": "Menutup",
   "adaptiveTheme": "Tema adaptif",
   "darkTheme": "Tema gelap",
+  "share": "Bagikan",
+  "copy": "Salin",
+  "sharePic": "Bagikan gambar",
   "displayAlways": "Tampilan selalu aktif"
 }
