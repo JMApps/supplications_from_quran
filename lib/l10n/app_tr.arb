@@ -22,10 +22,15 @@
   "forLightTheme": "Gündüz Modu için",
   "forDarkTheme": "Gece Modu için",
   "close": "Kapat",
-  "adaptiveTheme": "Adaptif mod",
-  "darkTheme": "Gece modu",
   "share": "Paylaş",
   "copy": "Kopyala",
   "sharePic": "Resmi paylaş",
+  "language": "Dil",
+  "appLanguage": "Uygulama dili",
+  "themeColor": "Tema rengi",
+  "selectThemeColor": "Tema rengini seçin",
+  "theme": "Tema",
+  "themeModes": "Açık, Karanlık, Sistem",
+  "textSizeNames": "Küçük, Normal, Orta, Büyük, Çok büyük, Maksimum",
   "displayAlways": "Hep açık ekran"
 }

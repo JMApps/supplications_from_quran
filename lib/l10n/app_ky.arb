@@ -22,10 +22,15 @@
   "forLightTheme": "Жарык түс үчүн",
   "forDarkTheme": "Кара түс үчүн",
   "close": "Жабуу",
-  "adaptiveTheme": "Адаптивдүү тема",
-  "darkTheme": "Кара түстөгү тема",
   "share": "Бөлүшүү",
   "copy": "Көчүрүү",
   "sharePic": "Сүрөттү бөлүшүү",
+  "language": "Тил",
+  "appLanguage": "Тиркеменин тили",
+  "themeColor": "Теманын түсү",
+  "selectThemeColor": "Теманын түсүн тандаңыз",
+  "theme": "Тема",
+  "themeModes": "Жарык, Караңгы, Система",
+  "textSizeNames": "Кичине, Нормалдуу, Орто, Чоң, Абдан чоң, Максималдуу",
   "displayAlways": "Дисплей дайым жанып турат"
 }

@@ -22,10 +22,15 @@
   "forLightTheme": "For light theme",
   "forDarkTheme": "For dark theme",
   "close": "Close",
-  "adaptiveTheme": "Adaptive theme",
-  "darkTheme": "Dark theme",
   "share": "Share",
   "copy": "Copy",
   "sharePic": "Share picture",
+  "language": "Language",
+  "appLanguage": "App language",
+  "themeColor": "Theme color",
+  "selectThemeColor": "Select theme color",
+  "theme": "Theme",
+  "themeModes": "Light, Dark, System",
+  "textSizeNames": "Small, Normal, Medium, Large, Very large, Maximum",
   "displayAlways": "Display always on"
 }

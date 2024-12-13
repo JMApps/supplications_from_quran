@@ -22,10 +22,15 @@
   "forLightTheme": "Işıqlı ekran üçün",
   "forDarkTheme": "Tünd ekran üçün",
   "close": "Bağlamaq",
-  "adaptiveTheme": "Adaptiv mövzu",
-  "darkTheme": "Qaranlıq mövzu",
   "share": "Paylaş",
   "copy": "Köçür",
   "sharePic": "Şəkli paylaş",
+  "language": "Dil",
+  "appLanguage": "Tətbiq dili",
+  "themeColor": "Mövzu rəngi",
+  "selectThemeColor": "Mövzu rəngini seçin",
+  "theme": "Mövzu",
+  "themeModes": "İşıqlı, Qaranlıq, Sistem",
+  "textSizeNames": "Kiçik, Normal, Orta, Böyük, Çox böyük, Maksimal",
   "displayAlways": "Ekran həmişə açıq"
 }

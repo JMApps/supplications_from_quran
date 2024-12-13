@@ -22,10 +22,15 @@
   "forLightTheme": "Ёруғ мавзу учун",
   "forDarkTheme": "Тунги мавзу учун",
   "close": "Ёпиш",
-  "adaptiveTheme":  "Адаптив мавзу",
-  "darkTheme":  "Тунги мавзу",
   "share": "Ulashish",
   "copy": "Nusxa olish",
   "sharePic": "Rasmni ulashish",
+  "language": "Til",
+  "appLanguage": "Ilova tili",
+  "themeColor": "Mavzu rangi",
+  "selectThemeColor": "Mavzu rangini tanlang",
+  "theme": "Mavzu",
+  "themeModes": "Yorug', Qorong'i, Tizim",
+  "textSizeNames": "Kichik, Oddiy, O'rtacha, Katta, Juda katta, Maksimal",
   "displayAlways":  "Экран доимо ёниқ"
 }

@@ -22,10 +22,15 @@
   "forLightTheme": "Untuk tema ringan",
   "forDarkTheme": "Untuk tema gelap",
   "close": "Menutup",
-  "adaptiveTheme": "Tema adaptif",
-  "darkTheme": "Tema gelap",
   "share": "Bagikan",
   "copy": "Salin",
   "sharePic": "Bagikan gambar",
+  "language": "Bahasa",
+  "appLanguage": "Bahasa aplikasi",
+  "themeColor": "Warna tema",
+  "selectThemeColor": "Pilih warna tema",
+  "theme": "Tema",
+  "themeModes": "Terang, Gelap, Sistem",
+  "textSizeNames": "Kecil, Normal, Sedang, Besar, Sangat besar, Maksimal",
   "displayAlways": "Tampilan selalu aktif"
 }
