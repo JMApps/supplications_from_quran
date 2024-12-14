@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/strings/app_constraints.dart';
 import '../../core/themes/app_themes.dart';
 import '../state/content_settings_state.dart';
 import 'main_page.dart';
@@ -18,11 +19,12 @@ class RootPage extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
+          locale: AppConstraints.appLocales[contentSettingsState.getAppLocaleIndex],
           onGenerateTitle: (context) => AppLocalizations.of(context)!.appName,
           theme: appThemes.lightTheme,
           darkTheme: appThemes.darkTheme,
           themeMode: contentSettingsState.getThemeMode,
-          home: const MainPage(),
+          home: MainPage(),
         );
       },
     );
