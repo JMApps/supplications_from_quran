@@ -25,14 +25,20 @@
 	</array>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleDisplayName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.1</string>
+	<string>2.2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>8</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Приложению не нужен доступ к микрофону, можете отклонить</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Чтобы сохранить изображение в Фото предоставьте доступ</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>

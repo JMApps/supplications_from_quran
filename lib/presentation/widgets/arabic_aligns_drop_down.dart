@@ -34,7 +34,7 @@ class ArabicAlignsDropDown extends StatelessWidget {
                 value: index,
                 alignment: Alignment.center,
                 child: Icon(
-                  AppStyles.textAlignIcons[index],
+                  AppStyles.arabicTextAlignIcons[index],
                   color: settingsState.getTextArabicAlignIndex == index ? appColors.primary : appColors.onSurface,
                 ),
               ),

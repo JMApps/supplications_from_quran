@@ -42,10 +42,17 @@ class AppStyles {
     TextAlign.justify,
   ];
 
-  static const List<IconData> textAlignIcons = [
+  static const List<IconData> arabicTextAlignIcons = [
     Icons.format_align_right_rounded,
     Icons.format_align_center_rounded,
     Icons.format_align_left_rounded,
+    Icons.format_align_justify_rounded,
+  ];
+
+  static const List<IconData> textAlignIcons = [
+    Icons.format_align_left_rounded,
+    Icons.format_align_center_rounded,
+    Icons.format_align_right_rounded,
     Icons.format_align_justify_rounded,
   ];
 
