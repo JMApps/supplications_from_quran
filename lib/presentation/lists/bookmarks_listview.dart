@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:supplications_from_quran/application/state/app_player_state.dart';
-import 'package:supplications_from_quran/application/state/main_app_state.dart';
-import 'package:supplications_from_quran/application/styles/app_styles.dart';
-import 'package:supplications_from_quran/domain/models/supplication_model.dart';
-import 'package:supplications_from_quran/presentation/items/supplication_listview_item.dart';
-import 'package:supplications_from_quran/presentation/widgets/item_sheet_bottom.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../../domain/entities/supplication_entity.dart';
+import '../items/supplication_listview_item.dart';
+import '../state/app_player_state.dart';
+import '../state/main_app_state.dart';
+import '../widgets/main_error_text.dart';
+import '../widgets/media_card.dart';
 
 class BookmarksListView extends StatelessWidget {
   const BookmarksListView({super.key});
@@ -14,53 +16,62 @@ class BookmarksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations locale = AppLocalizations.of(context)!;
-    final MainAppState mainAppState = Provider.of<MainAppState>(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
           create: (_) => AppPlayerState(),
         ),
       ],
-      child: FutureBuilder<List<SupplicationModel>>(
-        future: context.watch<MainAppState>().getSupplicationInteractor.getFavoriteSupplications(
+      child: Consumer<MainAppState>(
+        builder: (context, mainAppState, _) {
+          return FutureBuilder<List<SupplicationEntity>>(
+            future: mainAppState.fetchFavoriteSupplications(
               tableName: locale.tableName,
-              favorites: mainAppState.getFavoriteSupplications,
+              favoriteIds: mainAppState.getFavoriteSupplications,
             ),
-        builder: (BuildContext context,
-            AsyncSnapshot<List<SupplicationModel>> snapshot) {
-          if (snapshot.hasData) {
-            return Scrollbar(
-              child: ListView.builder(
-                padding: AppStyles.mainMardingVertical,
-                itemCount: snapshot.data!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final SupplicationModel model = snapshot.data![index];
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      SupplicationListViewItem(
-                        model: model,
-                        index: index,
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return MainErrorText(text: snapshot.error.toString());
+              }
+              if (snapshot.hasData && snapshot.data!.isEmpty) {
+                return Center(
+                  child: Padding(
+                    padding: AppStyles.mainMarding,
+                    child: Text(
+                      locale.bookmarksIsEmpty,
+                      style: const TextStyle(
+                        fontSize: 18.0,
                       ),
-                      ItemSheetBottom(model: model),
-                    ],
-                  );
-                },
-              ),
-            );
-          } else {
-            return Center(
-              child: Padding(
-                padding: AppStyles.mainMarding,
-                child: Text(
-                  locale.bookmarksIsEmpty,
-                  style: const TextStyle(
-                    fontSize: 18,
+                    ),
                   ),
-                ),
-              ),
-            );
-          }
+                );
+              }
+              if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                return Scrollbar(
+                  child: ListView.builder(
+                    padding: AppStyles.mardingMiniWithoutBottom,
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final SupplicationEntity model = snapshot.data![index];
+                      return Column(
+                        children: [
+                          SupplicationListViewItem(
+                            model: model,
+                            index: index,
+                          ),
+                          const SizedBox(height: 4),
+                          MediaCard(supplicationModel: model),
+                        ],
+                      );
+                    },
+                  ),
+                );
+              }
+              return const Center(
+                child: CircularProgressIndicator.adaptive(),
+              );
+            },
+          );
         },
       ),
     );
