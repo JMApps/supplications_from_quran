@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:supplications_from_quran/application/styles/app_styles.dart';
-import 'package:supplications_from_quran/domain/models/supplication_model.dart';
+
+import '../../core/strings/app_constraints.dart';
+import '../../core/styles/app_styles.dart';
+import '../../domain/entities/supplication_entity.dart';
 
 class ScreenshotPage extends StatelessWidget {
-  const ScreenshotPage({super.key, required this.model});
+  const ScreenshotPage({
+    super.key,
+    required this.model,
+  });
 
-  final SupplicationModel model;
+  final SupplicationEntity model;
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
-      margin: AppStyles.mainMarding,
       shape: AppStyles.mainShape,
       child: Padding(
         padding: AppStyles.mainMarding,
@@ -19,21 +24,22 @@ class ScreenshotPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              model.ayahArabic,
+              '﴿ ${model.ayahArabic} ﴾',
               style: TextStyle(
-                fontSize: 25,
-                fontFamily: 'Uthmani',
-                color: Colors.deepPurple.shade900,
+                fontSize: 25.0,
+                fontFamily: AppConstraints.fontHafs,
+                color: appColors.primary,
               ),
               textDirection: TextDirection.rtl,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 16),
             Text(
               model.ayahTranslation,
-              style: const TextStyle(
-                fontSize: 20,
-                fontFamily: 'Montserrat',
+              style: TextStyle(
+                fontSize: 20.0,
+                fontFamily: AppConstraints.fontRaleway,
+                color: appColors.onSurface,
               ),
               textAlign: TextAlign.center,
             ),
@@ -41,9 +47,9 @@ class ScreenshotPage extends StatelessWidget {
             Text(
               model.ayahSource,
               style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'Montserrat',
-                color: Colors.deepPurple.shade900,
+                fontSize: 14,
+                fontFamily: AppConstraints.fontRaleway,
+                color: appColors.secondary,
               ),
               textAlign: TextAlign.center,
             ),
