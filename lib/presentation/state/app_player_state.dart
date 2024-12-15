@@ -44,13 +44,9 @@ class AppPlayerState extends ChangeNotifier {
     );
   }
 
-  changeRepeatState({required int trackId}) {
+  void changeRepeatState({required int trackId}) {
       _repeatState = !_repeatState;
-      if (_repeatState) {
-        _audioPlayer.setLoopMode(LoopMode.one);
-      } else {
-        _audioPlayer.setLoopMode(LoopMode.off);
-      }
+      _audioPlayer.setLoopMode(_repeatState ? LoopMode.one : LoopMode.off);
       notifyListeners();
   }
 
