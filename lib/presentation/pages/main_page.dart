@@ -67,21 +67,21 @@ class _MainPageState extends State<MainPage> {
           bottomNavigationBar: SalomonBottomBar(
             items: [
               SalomonBottomBarItem(
-                icon: const Icon(CupertinoIcons.collections),
+                icon: Icon(mainAppState.getCurrentIndex == 0 ? CupertinoIcons.collections_solid : CupertinoIcons.collections),
                 title: Text(
                   locale.cards,
                   style: const TextStyle(fontFamily: AppConstraints.fontRaleway),
                 ),
               ),
               SalomonBottomBarItem(
-                icon: const Icon(CupertinoIcons.book),
+                icon: Icon(mainAppState.getCurrentIndex == 1 ? CupertinoIcons.book_solid : CupertinoIcons.book),
                 title: Text(
                   locale.pages,
                   style: const TextStyle(fontFamily: AppConstraints.fontRaleway),
                 ),
               ),
               SalomonBottomBarItem(
-                icon: const Icon(CupertinoIcons.bookmark),
+                icon: Icon(mainAppState.getCurrentIndex == 2 ?CupertinoIcons.bookmark_fill : CupertinoIcons.bookmark),
                 title: Text(
                   locale.bookmarks,
                   style: const TextStyle(fontFamily: AppConstraints.fontRaleway),

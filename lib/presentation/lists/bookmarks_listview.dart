@@ -27,7 +27,7 @@ class BookmarksListView extends StatelessWidget {
           return FutureBuilder<List<SupplicationEntity>>(
             future: mainAppState.fetchFavoriteSupplications(
               tableName: locale.tableName,
-              favoriteIds: mainAppState.getFavoriteSupplications,
+              favoriteIds: mainAppState.getFavoriteSupplicationIds,
             ),
             builder: (context, snapshot) {
               if (snapshot.hasError) {

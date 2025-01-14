@@ -20,7 +20,7 @@ class MainAppState extends ChangeNotifier {
   final _favoriteSettingsBox = Hive.box(AppConstraints.keyFavoriteSupplications);
 
   MainAppState(this._supplicationUseCase) {
-    _favoriteSupplications = _favoriteSettingsBox.get(AppConstraints.keyFavoriteSupplicationIds, defaultValue: <int>[]);
+    _favoriteSupplicationIds = _favoriteSettingsBox.get(AppConstraints.keyFavoriteSupplicationIds, defaultValue: <int>[]);
   }
 
   final SupplicationUseCase _supplicationUseCase;
@@ -35,9 +35,9 @@ class MainAppState extends ChangeNotifier {
 
   PageController get getPageController => _pageController;
 
-  List<int> _favoriteSupplications = [];
+  List<int> _favoriteSupplicationIds = [];
 
-  List<int> get getFavoriteSupplications => _favoriteSupplications;
+  List<int> get getFavoriteSupplicationIds => _favoriteSupplicationIds;
 
   Future<List<SupplicationEntity>> fetchAllSupplications({required String tableName}) async {
     return await _supplicationUseCase.getAllSupplications(tableName: tableName);
@@ -48,18 +48,18 @@ class MainAppState extends ChangeNotifier {
   }
 
   void toggleSupplicationFavorite({required int supplicationId}) {
-    final bool exist = _favoriteSupplications.contains(supplicationId);
+    final bool exist = _favoriteSupplicationIds.contains(supplicationId);
     if (exist) {
-      _favoriteSupplications.remove(supplicationId);
+      _favoriteSupplicationIds.remove(supplicationId);
     } else {
-      _favoriteSupplications.add(supplicationId);
+      _favoriteSupplicationIds.add(supplicationId);
     }
-    _favoriteSettingsBox.put(AppConstraints.keyFavoriteSupplications, _favoriteSupplications);
+    _favoriteSettingsBox.put(AppConstraints.keyFavoriteSupplicationIds, _favoriteSupplicationIds);
     notifyListeners();
   }
 
   bool supplicationIsFavorite(int supplicationId) {
-    return _favoriteSupplications.contains(supplicationId);
+    return _favoriteSupplicationIds.contains(supplicationId);
   }
 
   void get setDefaultListItem {

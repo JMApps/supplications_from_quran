@@ -40,8 +40,6 @@ class ContentSettingsState extends ChangeNotifier {
         return 3;
       case 'ky':
         return 4;
-      case 'ru':
-        return 5;
       case 'tr':
         return 6;
       case 'uz':

@@ -33,6 +33,7 @@ class MediaCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
+                  visualDensity: VisualDensity.comfortable,
                   onPressed: () {
                     playerState.playTrack(
                       nameAudio: supplicationModel.nameAudio,
@@ -42,6 +43,7 @@ class MediaCard extends StatelessWidget {
                   icon: Icon(playerState.getPlayingState ? Icons.stop_circle_outlined : Icons.play_circle_outline_rounded),
                 ),
                 IconButton(
+                  visualDensity: VisualDensity.comfortable,
                   onPressed: () {
                     playerState.changeRepeatState(trackId: supplicationModel.id);
                   },
@@ -51,6 +53,7 @@ class MediaCard extends StatelessWidget {
                   ),
                 ),
                 IconButton(
+                  visualDensity: VisualDensity.comfortable,
                   onPressed: () {
                     showModalBottomSheet(
                       context: context,
@@ -105,6 +108,7 @@ class MediaCard extends StatelessWidget {
                   icon: Icon(Icons.ios_share_rounded),
                 ),
                 IconButton(
+                  visualDensity: VisualDensity.comfortable,
                   onPressed: () {
                     mainState.toggleSupplicationFavorite(supplicationId: supplicationModel.id);
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -127,10 +131,11 @@ class MediaCard extends StatelessWidget {
                   ),
                 ),
                 CircleAvatar(
+                  radius: 17.5,
                   child: Text(
                     supplicationModel.id.toString(),
                     style: TextStyle(
-                      fontSize: 18.0,
+                      fontSize: 16.0,
                       fontFamily: AppConstraints.fontGilroy,
                     ),
                   ),

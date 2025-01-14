@@ -2,7 +2,7 @@ import 'dart:ui';
 
 class AppConstraints {
   static const keyMainAppSettings = 'key_main_app_settings';
-  static const keyFavoriteSupplications = 'key_favorite_supplications';
+  static const keyFavoriteSupplications = 'key_favorite_supplications_box';
   static const keyFavoriteSupplicationIds = 'key_favorite_supplication_ids';
 
   // Settings
